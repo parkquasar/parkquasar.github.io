@@ -29,7 +29,7 @@
   --navy-text: #1d3d7c;   /* small navy text: venues, years, links */
   --cobalt: #2f5fd6;      /* hover */
   --tint: #f1f5fb;        /* header band */
-  --tint-line: #c3d1ec;   /* link underline */
+  --tint-line: #93a8d6;   /* link underline */
 
   --ink: #16202f;
   --text: #2f3847;
@@ -131,6 +131,7 @@ h1 {
   text-wrap: pretty;
 }
 .intro p + p { margin-top: 1rem; }
+.links + p { margin-top: 2rem; }
 .intro strong { color: var(--ink); font-weight: 600; }
 
 .status { margin-top: 2rem; color: var(--navy); font-size: 1.0625rem; font-weight: 600; line-height: 1.5; }
@@ -152,7 +153,6 @@ h1 {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.75rem 1.5rem;
-  margin-top: 2rem;
   font-size: 1.0625rem;
   line-height: 1.5;
 }
@@ -166,7 +166,7 @@ h1 {
   text-decoration: none;
   transition: background-color 0.15s ease;
 }
-.links a.cv:hover { background: var(--cobalt); color: #fff; }
+.links a.cv:hover { background: var(--navy-text); color: #fff; }
 
 /* ---- Publications -------------------------------------------------- */
 .sec { padding-top: 4rem; padding-bottom: 4rem; }
@@ -193,7 +193,7 @@ h2 {
 
 .pub {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 13.5rem;
+  grid-template-columns: minmax(0, 1fr) 15rem;
   column-gap: 2rem;
   align-items: start;
 }
@@ -216,16 +216,17 @@ h2 {
 }
 .pub h3 a { transition: color 0.15s ease; }
 .pub h3 a:hover { color: var(--cobalt); }
-.authors { margin-top: 0.25rem; color: var(--muted); font-size: 0.9375rem; line-height: 1.55; text-wrap: pretty; }
+.authors { margin-top: 0.25rem; color: var(--muted); font-size: 0.9375rem; line-height: 1.5rem; text-wrap: pretty; }
 .authors .me { color: var(--ink); white-space: nowrap; }
-.desc { margin-top: 0.5rem; color: var(--body); font-size: 1.0625rem; line-height: 1.6; text-wrap: pretty; }
+.desc { max-width: 34rem; margin-top: 0.5rem; color: var(--body); font-size: 1.0625rem; line-height: 1.6; text-wrap: pretty; }
 .plinks { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; margin-top: 0.5rem; font-size: 0.9375rem; line-height: 1.5rem; }
+.plinks a { display: inline-block; margin: -0.375rem 0; padding: 0.375rem 0; } /* taller tap target, same row height */
 
 /* Figures: plain prints on the right edge; larger for first-author papers */
 .fig {
   display: block;
   justify-self: end;
-  width: 9.5rem;
+  width: 7.5rem;
   margin-top: 0.375rem;
   overflow: hidden;
   border-radius: 4px;
@@ -245,7 +246,7 @@ footer .line { display: flex; flex-wrap: wrap; justify-content: space-between; g
 /* ---- Medium: narrower figure column -------------------------------- */
 @media (max-width: 56rem) {
   .pub { grid-template-columns: minmax(0, 1fr) 10.5rem; column-gap: 1.5rem; }
-  .fig { width: 8rem; }
+  .fig { width: 6rem; }
 }
 
 /* ---- Narrow: the rail folds above the main column ------------------ */
@@ -257,10 +258,11 @@ footer .line { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .avatar { width: 4.5rem; height: 4.5rem; }
   .intro { margin-top: 1.5rem; }
   .intro p { font-size: 1.0625rem; }
+  .links + p, .status { margin-top: 1.5rem; }
   .sec { padding-top: 3rem; padding-bottom: 3rem; }
   .sec .head { margin-bottom: 1.5rem; }
   .year { margin-bottom: 0.75rem; }
-  .group + .group { margin-top: 2.5rem; }
+  .group + .group { margin-top: 2rem; }
   .pub { grid-template-columns: minmax(0, 1fr); }
   .fig { display: none; }                       /* small figures are dropped on phones */
   .pub.lead .fig { display: block; width: 100%; margin-top: 1rem; }
