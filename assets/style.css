@@ -104,7 +104,7 @@ a:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; border-
   backdrop-filter: saturate(160%) blur(12px);
 }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 3.5rem; }
-.brand { color: var(--navy); font-family: var(--serif); font-size: 1.25rem; font-weight: 600; letter-spacing: -0.005em; }
+.brand { color: var(--navy); font-family: var(--serif); font-size: 1.25rem; font-weight: 600; letter-spacing: -0.005em; white-space: nowrap; }
 .nav nav { display: flex; align-items: center; gap: 0.25rem; }
 .nav nav a {
   padding: 0.375rem 0.75rem;
@@ -159,7 +159,7 @@ h1 {
   letter-spacing: -0.02em;
 }
 .role { margin-top: 0.5rem; color: var(--text); font-size: 1.1875rem; line-height: 1.4; }
-.role .uni { display: block; color: var(--body); }
+.role .dept { display: block; color: var(--muted); font-size: 1.0625rem; }
 
 .status {
   display: inline-flex;
