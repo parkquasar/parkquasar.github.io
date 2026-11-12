@@ -138,11 +138,11 @@ a:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; border-
   margin-top: 2rem;
 }
 
-.ident { display: flex; align-items: center; gap: 2rem; }
+.ident { display: flex; align-items: center; gap: 1.75rem; }
 .avatar {
   flex: none;
-  width: 9rem;
-  height: 9rem;
+  width: 7.5rem;
+  height: 7.5rem;
   border: 3px solid #fff;
   border-radius: 50%;
   background: var(--tint-2);
@@ -392,7 +392,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .nav nav a.opt { display: none; }
   .hero { padding-top: 2rem; }
   .ident { gap: 1rem; }
-  .avatar { width: 6.5rem; height: 6.5rem; }
+  .avatar { width: 6rem; height: 6rem; }
   .role { font-size: 1.0625rem; }
   .status { border-radius: 14px; font-size: 0.9375rem; }
   .contact a { padding: 0.4375rem 0.75rem; font-size: 1rem; }
