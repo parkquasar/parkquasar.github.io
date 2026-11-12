@@ -159,7 +159,7 @@ h1 {
   letter-spacing: -0.02em;
 }
 .role { margin-top: 0.5rem; color: var(--text); font-size: 1.1875rem; line-height: 1.4; }
-.role .dept { display: block; color: var(--muted); font-size: 1.0625rem; }
+.dept { color: var(--muted); font-size: 1.0625rem; line-height: 1.4; }
 
 .status {
   display: inline-flex;
