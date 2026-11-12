@@ -77,7 +77,7 @@
           <div class="bio">
             <p>My research is on <strong><span class="nb">vision-language</span> models</strong> and <strong>large language models</strong>: understanding how they use visual and textual evidence, and improving their reliability and generalization. I am advised by <a class="nb" href="https://data.snu.ac.kr/">Prof. Sungroh Yoon</a>.</p>
             <p>With <strong>interpretability</strong>, I study what a model relies on, most recently in <span class="nb">multi-image</span> reasoning <span class="nb">(<a href="https://arxiv.org/abs/2611.04903">NeurIPS 2026</a>)</span>. With <strong>synthetic data</strong> and <span class="nb">fine-tuning</span>, I address specific failures, such as CLIP&rsquo;s handling of negation <span class="nb">(<a href="https://openaccess.thecvf.com/content/ICCV2025/html/Park_Know_No_Better_A_Data-Driven_Approach_for_Enhancing_Negation_Awareness_ICCV_2025_paper.html">ICCV 2025</a>)</span>.</p>
-            <p>Next, I plan to focus on <strong class="nb">post-training</strong> methods for <span class="nb">vision-language</span> models, building on <span class="nb">co-authored</span> work on reinforcement-learning-based <span class="nb">post-training</span> <span class="nb">(<a href="https://proceedings.mlr.press/v306/oh26c.html">ICML 2026</a>)</span>. I have also worked on industry-sponsored research with Samsung Electronics and SK hynix.</p>
+            <p>I am particularly interested in <strong class="nb">post-training</strong> methods for <span class="nb">vision-language</span> models, such as <span class="nb">on-policy</span> distillation, and plan to make them the focus of my next research.</p>
           </div>
         </div>
 
@@ -85,10 +85,22 @@
           <section class="card news" aria-labelledby="h-news">
             <h2 id="h-news">News</h2>
             <ul>
-              <li><time datetime="2026-12">December 2026</time>Presenting <em>Heads That Write, Not Just Point</em> at NeurIPS 2026 in Sydney.</li>
-              <li><time datetime="2026-10">October 2026</time><em>Balancing Gradient Frequencies</em> was accepted to IEEE TPAMI.</li>
-              <li><time datetime="2026-09">September 2026</time><em>Heads That Write, Not Just Point</em> was accepted to NeurIPS 2026.</li>
+              <li><time datetime="2026-12">Dec 2026</time><span>Presenting at <a href="#neurips2026">NeurIPS 2026</a> in Sydney</span></li>
+              <li><time datetime="2026-11">Nov 2026</time><span>Released the code and dataset for the <a href="#neurips2026">NeurIPS 2026</a> paper</span></li>
+              <li><time datetime="2026-10">Oct 2026</time><span>Paper accepted to <a href="#tpami2026">IEEE TPAMI</a></span></li>
+              <li><time datetime="2026-09">Sep 2026</time><span>First-author paper accepted to <a href="#neurips2026">NeurIPS 2026</a></span></li>
             </ul>
+            <details>
+              <summary><span class="when-closed">Show earlier news</span><span class="when-open">Hide earlier news</span></summary>
+              <ul>
+                <li><time datetime="2026-04">Apr 2026</time><span>Paper accepted to <a href="#icml2026">ICML 2026</a></span></li>
+                <li><time datetime="2025-06">Jun 2025</time><span>First-author paper accepted to <a href="#iccv2025">ICCV 2025</a></span></li>
+                <li><time datetime="2025-01">Jan 2025</time><span>Paper accepted to <a href="#naacl2025">NAACL 2025</a> Findings</span></li>
+                <li><time datetime="2024-05">May 2024</time><span>Paper accepted to <a href="#acl2024">ACL 2024</a> as an oral</span></li>
+                <li><time datetime="2024-01">Jan 2024</time><span>Two papers accepted to <a href="#iclr2024">ICLR 2024</a>, one as a spotlight</span></li>
+                <li><time datetime="2023-09">Sep 2023</time><span>Paper accepted to <a href="#neurips2023">NeurIPS 2023</a></span></li>
+              </ul>
+            </details>
           </section>
           <section class="card areas" aria-labelledby="h-areas">
             <h2 id="h-areas">Research Areas</h2>
@@ -113,8 +125,8 @@
 
     <div class="year" role="heading" aria-level="3">2026</div>
 
-    <article class="pub first">
-      <a class="thumb" href="assets/img/heads.webp" aria-label="Open the figure for this paper"><img src="assets/img/heads.webp" width="1000" height="542" alt="Overview: a multi-image question, the pointer score from a head's attention, and the writer score from the head's output."></a>
+    <article class="pub first" id="neurips2026">
+      <a class="thumb" href="assets/img/heads-full.webp" aria-label="Open the figure at full size"><img src="assets/img/heads.webp" width="1100" height="595" alt="Figure 1 of the paper: a multi-image question, the pointer score computed from a head's attention, and the writer score computed from the head's output."></a>
       <div>
         <div class="meta"><span class="venue">NeurIPS 2026</span><span class="tag first">First author</span></div>
         <h3><a href="https://arxiv.org/abs/2611.04903">Heads That Write, Not Just Point: Image Retrieval Heads in <span class="nb">Vision-Language</span> Models</a></h3>
@@ -123,8 +135,8 @@
         <ul class="links"><li><a href="https://arxiv.org/abs/2611.04903">Paper</a></li><li><a href="https://github.com/parkquasar/Image-Retrieval-Heads">Code</a></li><li><a href="https://huggingface.co/datasets/jerryray/ICIR-MCQ">Dataset</a></li></ul>
       </div>
     </article>
-    <article class="pub">
-      <a class="thumb" href="assets/img/bgf.webp" aria-label="Open the figure for this paper"><img src="assets/img/bgf.webp" width="963" height="525" loading="lazy" alt="Accuracy and training speed of Adam and the proposed optimizer under increasing spurious correlation."></a>
+    <article class="pub" id="tpami2026">
+      <a class="thumb" href="assets/img/bgf-full.webp" aria-label="Open the figure at full size"><img src="assets/img/bgf.webp" width="1100" height="599" loading="lazy" alt="Figure 1 of the paper: accuracy and training speed of Adam and the proposed optimizer as spurious correlation increases."></a>
       <div>
         <div class="meta"><span class="venue">IEEE TPAMI 2026</span></div>
         <h3><a href="https://ieeexplore.ieee.org/document/11734045">Balancing Gradient Frequencies Facilitates Inductive Inference in Algorithmic Reasoning</a></h3>
@@ -133,8 +145,8 @@
         <ul class="links"><li><a href="https://ieeexplore.ieee.org/document/11734045">Paper</a></li></ul>
       </div>
     </article>
-    <article class="pub">
-      <a class="thumb" href="assets/img/covip.webp" aria-label="Open the figure for this paper"><img src="assets/img/covip.webp" width="1000" height="398" loading="lazy" alt="A vision-language model answering about a new image with and without contextualized visual personalization."></a>
+    <article class="pub" id="icml2026">
+      <a class="thumb" href="assets/img/covip-full.webp" aria-label="Open the figure at full size"><img src="assets/img/covip.webp" width="1100" height="438" loading="lazy" alt="Figure 1 of the paper: a vision-language model answering about a new image with and without contextualized visual personalization."></a>
       <div>
         <div class="meta"><span class="venue">ICML 2026</span></div>
         <h3><a href="https://proceedings.mlr.press/v306/oh26c.html">Contextualized Visual Personalization in <span class="nb">Vision-Language</span> Models</a></h3>
@@ -146,8 +158,8 @@
 
     <div class="year" role="heading" aria-level="3">2025</div>
 
-    <article class="pub first">
-      <a class="thumb" href="assets/img/negationclip.webp" aria-label="Open the figure for this paper"><img src="assets/img/negationclip.webp" width="1000" height="410" loading="lazy" alt="Images generated by Stable Diffusion XL with the text encoder from CLIP and from NegationCLIP, for prompts with negation."></a>
+    <article class="pub first" id="iccv2025">
+      <a class="thumb" href="assets/img/negationclip-full.webp" aria-label="Open the figure at full size"><img src="assets/img/negationclip.webp" width="1100" height="644" loading="lazy" alt="Figure 1 of the paper: CLIP and NegationCLIP on image-text matching, text-to-image generation, and referring image segmentation with negated prompts."></a>
       <div>
         <div class="meta"><span class="venue">ICCV 2025</span><span class="tag first">First author</span></div>
         <h3><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Park_Know_No_Better_A_Data-Driven_Approach_for_Enhancing_Negation_Awareness_ICCV_2025_paper.html">Know &ldquo;No&rdquo; Better: A <span class="nb">Data-Driven</span> Approach for Enhancing Negation Awareness in CLIP</a></h3>
@@ -156,8 +168,8 @@
         <ul class="links"><li><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Park_Know_No_Better_A_Data-Driven_Approach_for_Enhancing_Negation_Awareness_ICCV_2025_paper.html">Paper</a></li><li><a href="https://arxiv.org/abs/2501.10913">arXiv</a></li><li><a href="https://github.com/parkquasar/NegationCLIP">Code</a></li><li><a href="https://huggingface.co/jerryray/negationclip">Models</a></li></ul>
       </div>
     </article>
-    <article class="pub">
-      <a class="thumb" href="assets/img/core.webp" aria-label="Open the figure for this paper"><img src="assets/img/core.webp" width="975" height="421" loading="lazy" alt="A model failing a multi-hop question when the supporting documents appear in a misleading order."></a>
+    <article class="pub" id="naacl2025">
+      <a class="thumb" href="assets/img/core-full.webp" aria-label="Open the figure at full size"><img src="assets/img/core.webp" width="1100" height="1008" loading="lazy" alt="Figure 1 of the paper: the same multi-hop question answered wrongly or correctly depending on the order of the supporting documents."></a>
       <div>
         <div class="meta"><span class="venue">NAACL 2025</span><span class="tag">Findings</span></div>
         <h3><a href="https://aclanthology.org/2025.findings-naacl.360/">Unleashing <span class="nb">Multi-Hop</span> Reasoning Potential in Large Language Models through Repetition of Misordered Context</a></h3>
@@ -169,8 +181,8 @@
 
     <div class="year" role="heading" aria-level="3">2024</div>
 
-    <article class="pub">
-      <a class="thumb" href="assets/img/plugir.webp" aria-label="Open the figure for this paper"><img src="assets/img/plugir.webp" width="985" height="521" loading="lazy" alt="A retrieval example: as the dialogue adds detail, the rank of the target image improves."></a>
+    <article class="pub" id="acl2024">
+      <a class="thumb" href="assets/img/plugir-full.webp" aria-label="Open the figure at full size"><img src="assets/img/plugir.webp" width="1100" height="479" loading="lazy" alt="Figure 1 of the paper: the PlugIR framework, in which an LLM reformulates the dialogue and asks questions to refine retrieval."></a>
       <div>
         <div class="meta"><span class="venue">ACL 2024</span><span class="tag honor">Oral</span></div>
         <h3><a href="https://aclanthology.org/2024.acl-long.46/">Interactive <span class="nb">Text-to-Image</span> Retrieval with Large Language Models: A <span class="nb">Plug-and-Play</span> Approach</a></h3>
@@ -179,8 +191,8 @@
         <ul class="links"><li><a href="https://aclanthology.org/2024.acl-long.46/">Paper</a></li><li><a href="https://arxiv.org/abs/2406.03411">arXiv</a></li><li><a href="https://github.com/Saehyung-Lee/PlugIR">Code</a></li></ul>
       </div>
     </article>
-    <article class="pub">
-      <a class="thumb" href="assets/img/deyo.webp" aria-label="Open the figure for this paper"><img src="assets/img/deyo.webp" width="922" height="433" loading="lazy" alt="Grad-CAM maps for correctly and wrongly predicted bird images."></a>
+    <article class="pub" id="iclr2024">
+      <a class="thumb" href="assets/img/deyo-full.webp" aria-label="Open the figure at full size"><img src="assets/img/deyo.webp" width="1100" height="541" loading="lazy" alt="An image and its patch-shuffled version, the object-destructive transformation used by the method."></a>
       <div>
         <div class="meta"><span class="venue">ICLR 2024</span><span class="tag honor">Spotlight</span></div>
         <h3><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/cd0665986c1e9c15f6569ac944bcf88a-Abstract-Conference.html">Entropy is not Enough for <span class="nb">Test-Time</span> Adaptation: From the Perspective of Disentangled Factors</a></h3>
@@ -189,8 +201,8 @@
         <ul class="links"><li><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/cd0665986c1e9c15f6569ac944bcf88a-Abstract-Conference.html">Paper</a></li><li><a href="https://arxiv.org/abs/2403.07366">arXiv</a></li><li><a href="https://whitesnowdrop.github.io/DeYO/">Project</a></li></ul>
       </div>
     </article>
-    <article class="pub">
-      <a class="thumb" href="assets/img/dafa.webp" aria-label="Open the figure for this paper"><img src="assets/img/dafa.webp" width="1000" height="327" loading="lazy" alt="A previous approach and DAFA compared across similar and dissimilar classes."></a>
+    <article class="pub" id="iclr2024-dafa">
+      <a class="thumb" href="assets/img/dafa-full.webp" aria-label="Open the figure at full size"><img src="assets/img/dafa.webp" width="1100" height="359" loading="lazy" alt="Figure 1 of the paper: a previous approach and DAFA compared across similar and dissimilar classes."></a>
       <div>
         <div class="meta"><span class="venue">ICLR 2024</span></div>
         <h3><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/7bd4a7d0e6773072c2e3c77b11d93065-Abstract-Conference.html">DAFA: <span class="nb">Distance-Aware</span> Fair Adversarial Training</a></h3>
@@ -202,8 +214,8 @@
 
     <div class="year" role="heading" aria-level="3">2023</div>
 
-    <article class="pub">
-      <a class="thumb" href="assets/img/puca.webp" aria-label="Open the figure for this paper"><img src="assets/img/puca.webp" width="1000" height="490" loading="lazy" alt="A noisy image crop and the same crop denoised by PUCA."></a>
+    <article class="pub" id="neurips2023">
+      <a class="thumb" href="assets/img/puca-full.webp" aria-label="Open the figure at full size"><img src="assets/img/puca.webp" width="1100" height="539" loading="lazy" alt="A noisy image crop and the same crop denoised by PUCA."></a>
       <div>
         <div class="meta"><span class="venue">NeurIPS 2023</span></div>
         <h3><a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/3d226fb8fbd6ee6ec70d0427f1319707-Abstract-Conference.html">PUCA: <span class="nb">Patch-Unshuffle</span> and Channel Attention for Enhanced <span class="nb">Self-Supervised</span> Image Denoising</a></h3>
