@@ -229,7 +229,7 @@ h1 {
   stroke-linejoin: round;
 }
 
-/* Side column: news and research interests */
+/* Side column: news */
 .side { display: grid; gap: 1rem; }
 .card {
   padding: 1.5rem;
@@ -293,17 +293,6 @@ h1 {
 .news .when-open,
 .news details[open] .when-closed { display: none; }
 .news details[open] .when-open { display: inline; }
-
-.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
-.chips li {
-  padding: 0.3125rem 0.8125rem;
-  border-radius: 999px;
-  background: var(--tint);
-  color: var(--navy-2);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  line-height: 1.4;
-}
 
 /* ---- Publications -------------------------------------------------- */
 .block { padding-top: 4rem; }
@@ -417,7 +406,6 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 @media (max-width: 70rem) {
   .pub { grid-template-columns: 20rem minmax(0, 1fr); }
   .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
-  .side { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
 }
 
 @media (max-width: 62rem) {
@@ -436,7 +424,6 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .status { border-radius: 14px; font-size: 0.9375rem; }
   .contact a { padding: 0.4375rem 0.75rem; font-size: 1rem; }
   .bio p { font-size: 1.125rem; }
-  .side { grid-template-columns: minmax(0, 1fr); }
   .block { padding-top: 3rem; }
   .sec h2 { font-size: 1.75rem; }
   .pub { grid-template-columns: 12.5rem minmax(0, 1fr); gap: 1rem; padding: 1rem; }
