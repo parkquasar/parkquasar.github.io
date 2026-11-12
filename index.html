@@ -15,7 +15,7 @@
   <link rel="icon" href="favicon.svg?v=b9212a78" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/source-sans-3-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/style.css?v=f234aac4">
+  <link rel="stylesheet" href="assets/style.css?v=9521bcb0">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -45,7 +45,7 @@
     <nav aria-label="Sections">
       <a class="opt" href="#about">About</a>
       <a href="#publications">Publications</a>
-      <a class="cv" href="Junsung_Park_CV.pdf?v=1fea61ca">CV</a>
+      <a href="Junsung_Park_CV.pdf?v=1fea61ca">CV</a>
     </nav>
   </div>
 </header>
@@ -55,8 +55,7 @@
   <!-- ===== About ====================================================== -->
   <section class="hero" id="about">
     <div class="wrap">
-      <div class="hero-grid">
-        <div>
+      <div class="hero-head">
           <div class="ident">
             <img class="avatar" src="assets/img/profile.webp?v=cf6a03bd" width="320" height="320" alt="Portrait of Junsung Park">
             <div>
@@ -75,36 +74,34 @@
             <li><a href="https://www.linkedin.com/in/junsung-park-a59752308/" rel="me"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></li>
           </ul>
 
+      </div>
+      <div class="hero-grid">
           <div class="bio">
             <p>I am an AI researcher and a Ph.D. candidate in Electrical and Computer Engineering at Seoul National University, advised by <a class="nb" href="https://data.snu.ac.kr/">Prof. Sungroh Yoon</a> in the Data Science &amp; Artificial Intelligence Laboratory. I started the integrated <span class="nb">M.S./Ph.D.</span> program in 2022, after receiving my B.S. in Electrical and Computer Engineering from Seoul National University.</p>
             <p>My research is on <strong><span class="nb">Vision-Language</span> Models (VLMs)</strong> and <strong>Large Language Models (LLMs)</strong>. The question behind most of my work is whether a model&rsquo;s answer is grounded in the evidence it is given, such as an image or a retrieved document. A model can answer fluently while overlooking the image a question refers to, or a single word of negation in a caption.</p>
             <p>In VLMs, I have studied how a model finds, among many images, the one a question refers to <span class="nb">(<a href="#neurips2026">NeurIPS 2026</a>)</span>, how <span class="nb">fine-tuning</span> on synthetic captions improves CLIP&rsquo;s understanding of negation <span class="nb">(<a href="#iccv2025">ICCV 2025</a>)</span>, and <span class="nb">post-training</span> for personalized responses <span class="nb">(<a href="#icml2026">ICML 2026</a>)</span>. With LLMs, I have worked on <span class="nb">multi-hop</span> reasoning over misordered documents <span class="nb">(<a href="#naacl2025">NAACL 2025</a>)</span> and on interactive <span class="nb">text-to-image</span> retrieval <span class="nb">(<a href="#acl2024">ACL 2024</a>)</span>. My papers have appeared in NeurIPS, ICML, ICLR, ICCV, ACL, NAACL, and TPAMI.</p>
             <p>I am currently interested in making VLMs reason reliably over what they see. This includes visual and <span class="nb">multi-image</span> reasoning, grounding and hallucination, and benchmarks that measure these abilities directly. I am also interested in <span class="nb">post-training</span> methods, such as reinforcement learning and <span class="nb">on-policy</span> distillation, as a way to improve these abilities.</p>
           </div>
-        </div>
 
         <aside class="side">
           <section class="card news" aria-labelledby="h-news">
             <h2 id="h-news">News</h2>
-            <ul>
-              <li><time datetime="2026-12">Dec 2026</time><span>Presenting at <a href="#neurips2026">NeurIPS 2026</a> in <span class="nb">Sydney, Australia</span></span></li>
-              <li><time datetime="2026-10">Oct 2026</time><span>Paper accepted to <a href="#tpami2026">IEEE TPAMI</a></span></li>
-              <li><time datetime="2026-09">Sep 2026</time><span>Paper accepted to <a href="#neurips2026">NeurIPS 2026</a></span></li>
-              <li><time datetime="2026-07">Jul 2026</time><span>Presented at <a href="#icml2026">ICML 2026</a> in <span class="nb">Seoul, Korea</span></span></li>
-              <li><time datetime="2026-04">Apr 2026</time><span>Paper accepted to <a href="#icml2026">ICML 2026</a></span></li>
-              <li><time datetime="2025-10">Oct 2025</time><span>Presented at <a href="#iccv2025">ICCV 2025</a> in <span class="nb">Honolulu, Hawaii</span></span></li>
-              <li><time datetime="2025-06">Jun 2025</time><span>Paper accepted to <a href="#iccv2025">ICCV 2025</a></span></li>
-              <li><time datetime="2025-01">Jan 2025</time><span>Paper accepted to <a href="#naacl2025">NAACL 2025</a> Findings</span></li>
-            </ul>
-            <details>
-              <summary><span class="when-closed">Show earlier news</span><span class="when-open">Hide earlier news</span></summary>
+            <div class="scroller">
               <ul>
+                <li><time datetime="2026-12">Dec 2026</time><span>Presenting at <a href="#neurips2026">NeurIPS 2026</a> in <span class="nb">Sydney, Australia</span></span></li>
+                <li><time datetime="2026-10">Oct 2026</time><span>Paper accepted to <a href="#tpami2026">IEEE TPAMI</a></span></li>
+                <li><time datetime="2026-09">Sep 2026</time><span>Paper accepted to <a href="#neurips2026">NeurIPS 2026</a></span></li>
+                <li><time datetime="2026-07">Jul 2026</time><span>Presented at <a href="#icml2026">ICML 2026</a> in <span class="nb">Seoul, Korea</span></span></li>
+                <li><time datetime="2026-04">Apr 2026</time><span>Paper accepted to <a href="#icml2026">ICML 2026</a></span></li>
+                <li><time datetime="2025-10">Oct 2025</time><span>Presented at <a href="#iccv2025">ICCV 2025</a> in <span class="nb">Honolulu, Hawaii</span></span></li>
+                <li><time datetime="2025-06">Jun 2025</time><span>Paper accepted to <a href="#iccv2025">ICCV 2025</a></span></li>
+                <li><time datetime="2025-01">Jan 2025</time><span>Paper accepted to <a href="#naacl2025">NAACL 2025</a> Findings</span></li>
                 <li><time datetime="2024-05">May 2024</time><span>Paper accepted to <a href="#acl2024">ACL 2024</a> as an oral</span></li>
                 <li><time datetime="2024-05">May 2024</time><span>Presented at <a href="#iclr2024">ICLR 2024</a> in <span class="nb">Vienna, Austria</span></span></li>
                 <li><time datetime="2024-01">Jan 2024</time><span>Two papers accepted to <a href="#iclr2024">ICLR 2024</a>, one as a spotlight</span></li>
                 <li><time datetime="2023-09">Sep 2023</time><span>Paper accepted to <a href="#neurips2023">NeurIPS 2023</a></span></li>
               </ul>
-            </details>
+            </div>
           </section>
         </aside>
       </div>
@@ -165,7 +162,7 @@
       </div>
     </article>
     <article class="pub" id="naacl2025">
-      <a class="thumb" href="assets/img/core-full.webp?v=8cbc166c" aria-label="Open the figure at full size"><img src="assets/img/core.webp?v=27f76b43" width="1100" height="1008" loading="lazy" alt="Figure 1 of the paper: the same multi-hop question answered wrongly or correctly depending on the order of the supporting documents."></a>
+      <a class="thumb" href="assets/img/core-full.webp?v=8cbc166c" aria-label="Open the figure at full size"><img src="assets/img/crops/core.webp?v=be86df2f" width="1100" height="619" loading="lazy" alt="Part of Figure 1 of the paper: a multi-hop question answered wrongly when the supporting documents are in a misleading order."></a>
       <div>
         <div class="meta"><span class="venue">NAACL 2025</span><span class="tag">Findings</span></div>
         <h3><a href="https://aclanthology.org/2025.findings-naacl.360/">Unleashing <span class="nb">Multi-Hop</span> Reasoning Potential in Large Language Models through Repetition of Misordered Context</a></h3>
@@ -188,7 +185,7 @@
       </div>
     </article>
     <article class="pub" id="iclr2024">
-      <a class="thumb" href="assets/img/deyo-full.webp?v=6adfd319" aria-label="Open the figure at full size"><img src="assets/img/deyo.webp?v=0d500ee0" width="1100" height="541" loading="lazy" alt="An image and its patch-shuffled version, the object-destructive transformation used by the method."></a>
+      <a class="thumb" href="assets/img/deyo-full.webp?v=6adfd319" aria-label="Open the figure at full size"><img src="assets/img/crops/deyo.webp?v=cc57fb26" width="782" height="440" loading="lazy" alt="An image and its patch-shuffled version, the object-destructive transformation used by the method."></a>
       <div>
         <div class="meta"><span class="venue">ICLR 2024</span><span class="tag honor">Spotlight</span></div>
         <h3><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/cd0665986c1e9c15f6569ac944bcf88a-Abstract-Conference.html">Entropy is not Enough for <span class="nb">Test-Time</span> Adaptation: From the Perspective of Disentangled Factors</a></h3>
@@ -198,7 +195,7 @@
       </div>
     </article>
     <article class="pub" id="iclr2024-dafa">
-      <a class="thumb" href="assets/img/dafa-full.webp?v=72c06c72" aria-label="Open the figure at full size"><img src="assets/img/dafa.webp?v=e5966180" width="1100" height="359" loading="lazy" alt="Figure 1 of the paper: a previous approach and DAFA compared across similar and dissimilar classes."></a>
+      <a class="thumb" href="assets/img/dafa-full.webp?v=72c06c72" aria-label="Open the figure at full size"><img src="assets/img/crops/dafa.webp?v=46a577b1" width="1100" height="619" loading="lazy" alt="Part of Figure 1 of the paper: a previous approach and DAFA compared on similar classes."></a>
       <div>
         <div class="meta"><span class="venue">ICLR 2024</span></div>
         <h3><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/7bd4a7d0e6773072c2e3c77b11d93065-Abstract-Conference.html">DAFA: <span class="nb">Distance-Aware</span> Fair Adversarial Training</a></h3>
@@ -211,7 +208,7 @@
     <div class="year" role="heading" aria-level="3">2023</div>
 
     <article class="pub" id="neurips2023">
-      <a class="thumb" href="assets/img/puca-full.webp?v=56450649" aria-label="Open the figure at full size"><img src="assets/img/puca.webp?v=fababdbd" width="1100" height="539" loading="lazy" alt="A noisy image crop and the same crop denoised by PUCA."></a>
+      <a class="thumb" href="assets/img/puca-full.webp?v=56450649" aria-label="Open the figure at full size"><img src="assets/img/crops/puca.webp?v=b874ea13" width="1100" height="619" loading="lazy" alt="A noisy image crop and the same crop denoised by PUCA."></a>
       <div>
         <div class="meta"><span class="venue">NeurIPS 2023</span></div>
         <h3><a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/3d226fb8fbd6ee6ec70d0427f1319707-Abstract-Conference.html">PUCA: <span class="nb">Patch-Unshuffle</span> and Channel Attention for Enhanced <span class="nb">Self-Supervised</span> Image Denoising</a></h3>
