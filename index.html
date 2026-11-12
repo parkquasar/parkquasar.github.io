@@ -15,7 +15,7 @@
   <link rel="icon" href="favicon.svg?v=b9212a78" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/source-sans-3-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/style.css?v=9c555339">
+  <link rel="stylesheet" href="assets/style.css?v=f234aac4">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -78,7 +78,7 @@
           <div class="bio">
             <p>I am an AI researcher and a Ph.D. candidate in Electrical and Computer Engineering at Seoul National University, advised by <a class="nb" href="https://data.snu.ac.kr/">Prof. Sungroh Yoon</a> in the Data Science &amp; Artificial Intelligence Laboratory. I started the integrated <span class="nb">M.S./Ph.D.</span> program in 2022, after receiving my B.S. in Electrical and Computer Engineering from Seoul National University.</p>
             <p>My research is on <strong><span class="nb">Vision-Language</span> Models (VLMs)</strong> and <strong>Large Language Models (LLMs)</strong>. The question behind most of my work is whether a model&rsquo;s answer is grounded in the evidence it is given, such as an image or a retrieved document. A model can answer fluently while overlooking the image a question refers to, or a single word of negation in a caption.</p>
-            <p>Two of my <span class="nb">first-author</span> papers study this question in VLMs. The first <span class="nb">(<a href="#neurips2026">NeurIPS 2026</a>)</span> examines how a VLM finds, among many images, the one a question refers to, and which attention heads this ability depends on. The second <span class="nb">(<a href="#iccv2025">ICCV 2025</a>)</span> identifies the scarcity of negation in public <span class="nb">pre-training</span> captions as a likely cause of CLIP&rsquo;s failure to understand negation, and addresses it by <span class="nb">fine-tuning</span> CLIP on synthetic captions. With collaborators, I have also worked on <span class="nb">post-training</span> for personalized VLMs, on <span class="nb">multi-hop</span> reasoning and interactive retrieval with LLMs, and on robustness. My papers have appeared in NeurIPS, ICML, ICLR, ICCV, ACL, NAACL, and TPAMI.</p>
+            <p>In VLMs, I have studied how a model finds, among many images, the one a question refers to <span class="nb">(<a href="#neurips2026">NeurIPS 2026</a>)</span>, how <span class="nb">fine-tuning</span> on synthetic captions improves CLIP&rsquo;s understanding of negation <span class="nb">(<a href="#iccv2025">ICCV 2025</a>)</span>, and <span class="nb">post-training</span> for personalized responses <span class="nb">(<a href="#icml2026">ICML 2026</a>)</span>. With LLMs, I have worked on <span class="nb">multi-hop</span> reasoning over misordered documents <span class="nb">(<a href="#naacl2025">NAACL 2025</a>)</span> and on interactive <span class="nb">text-to-image</span> retrieval <span class="nb">(<a href="#acl2024">ACL 2024</a>)</span>. My papers have appeared in NeurIPS, ICML, ICLR, ICCV, ACL, NAACL, and TPAMI.</p>
             <p>I am currently interested in making VLMs reason reliably over what they see. This includes visual and <span class="nb">multi-image</span> reasoning, grounding and hallucination, and benchmarks that measure these abilities directly. I am also interested in <span class="nb">post-training</span> methods, such as reinforcement learning and <span class="nb">on-policy</span> distillation, as a way to improve these abilities.</p>
           </div>
         </div>
@@ -89,11 +89,11 @@
             <ul>
               <li><time datetime="2026-12">Dec 2026</time><span>Presenting at <a href="#neurips2026">NeurIPS 2026</a> in <span class="nb">Sydney, Australia</span></span></li>
               <li><time datetime="2026-10">Oct 2026</time><span>Paper accepted to <a href="#tpami2026">IEEE TPAMI</a></span></li>
-              <li><time datetime="2026-09">Sep 2026</time><span>First-author paper accepted to <a href="#neurips2026">NeurIPS 2026</a></span></li>
+              <li><time datetime="2026-09">Sep 2026</time><span>Paper accepted to <a href="#neurips2026">NeurIPS 2026</a></span></li>
               <li><time datetime="2026-07">Jul 2026</time><span>Presented at <a href="#icml2026">ICML 2026</a> in <span class="nb">Seoul, Korea</span></span></li>
               <li><time datetime="2026-04">Apr 2026</time><span>Paper accepted to <a href="#icml2026">ICML 2026</a></span></li>
               <li><time datetime="2025-10">Oct 2025</time><span>Presented at <a href="#iccv2025">ICCV 2025</a> in <span class="nb">Honolulu, Hawaii</span></span></li>
-              <li><time datetime="2025-06">Jun 2025</time><span>First-author paper accepted to <a href="#iccv2025">ICCV 2025</a></span></li>
+              <li><time datetime="2025-06">Jun 2025</time><span>Paper accepted to <a href="#iccv2025">ICCV 2025</a></span></li>
               <li><time datetime="2025-01">Jan 2025</time><span>Paper accepted to <a href="#naacl2025">NAACL 2025</a> Findings</span></li>
             </ul>
             <details>
@@ -112,22 +112,22 @@
   </section>
 
   <!-- ===== Publications ================================================ -->
-  <!-- One article.pub card per paper, newest first. Add the class first for first-author papers. -->
+  <!-- One article.pub card per paper, newest first. Mark first authorship with the "First author" tag. -->
   <section class="wrap block" id="publications" aria-labelledby="h-pubs">
     <div class="sec">
       <h2 id="h-pubs">Publications</h2>
-      <div class="legend"><span><span class="swatch" aria-hidden="true"></span>First-author paper</span><span>* Equal contribution</span></div>
+      <div class="legend"><span>* Equal contribution</span></div>
     </div>
 
     <div class="year" role="heading" aria-level="3">2026</div>
 
-    <article class="pub first" id="neurips2026">
+    <article class="pub" id="neurips2026">
       <a class="thumb" href="assets/img/heads-full.webp?v=462a0821" aria-label="Open the figure at full size"><img src="assets/img/heads.webp?v=57a70921" width="1100" height="595" alt="Figure 1 of the paper: a multi-image question, the pointer score computed from a head's attention, and the writer score computed from the head's output."></a>
       <div>
         <div class="meta"><span class="venue">NeurIPS 2026</span><span class="tag first">First author</span></div>
         <h3><a href="https://arxiv.org/abs/2611.04903">Heads That Write, Not Just Point: Image Retrieval Heads in <span class="nb">Vision-Language</span> Models</a></h3>
         <p class="authors"><span class="me">Junsung Park</span>, Sangwon Yu, Donghun Kang, Yeongtak Oh, Jaewon Jeong, Gyeongtae Yoo, Han Cheol Moon, Jungbeom Lee, Sungroh Yoon</p>
-        <p class="desc">We separate attention heads that point to the target image from heads whose outputs identify it. Across four <span class="nb">open-weight</span> models, the two sets only partly overlap, and inference is most sensitive to heads in both.</p>
+        <p class="desc">We separate attention heads that point to the target image from heads whose outputs identify it, and find that inference is most sensitive to heads in both sets.</p>
         <ul class="links"><li><a href="https://arxiv.org/abs/2611.04903">Paper</a></li><li><a href="https://github.com/parkquasar/Image-Retrieval-Heads">Code</a></li><li><a href="https://huggingface.co/datasets/jerryray/ICIR-MCQ">Dataset</a></li></ul>
       </div>
     </article>
@@ -154,13 +154,13 @@
 
     <div class="year" role="heading" aria-level="3">2025</div>
 
-    <article class="pub first" id="iccv2025">
+    <article class="pub" id="iccv2025">
       <a class="thumb" href="assets/img/negationclip-full.webp?v=5c2f1232" aria-label="Open the figure at full size"><img src="assets/img/negationclip.webp?v=a908447a" width="1100" height="644" loading="lazy" alt="Figure 1 of the paper: CLIP and NegationCLIP on image-text matching, text-to-image generation, and referring image segmentation with negated prompts."></a>
       <div>
         <div class="meta"><span class="venue">ICCV 2025</span><span class="tag first">First author</span></div>
         <h3><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Park_Know_No_Better_A_Data-Driven_Approach_for_Enhancing_Negation_Awareness_ICCV_2025_paper.html">Know &ldquo;No&rdquo; Better: A <span class="nb">Data-Driven</span> Approach for Enhancing Negation Awareness in CLIP</a></h3>
         <p class="authors"><span class="me">Junsung Park</span>, Jungbeom Lee, Jongyoon Song, Sangwon Yu, Dahuin Jung, Sungroh Yoon</p>
-        <p class="desc">CLIP often fails to tell a concept from its negation. We generate captions with negation, <span class="nb">fine-tune</span> CLIP&rsquo;s text encoder on them, and introduce the NegRefCOCOg benchmark.</p>
+        <p class="desc">We improve CLIP&rsquo;s understanding of negation by <span class="nb">fine-tuning</span> it on synthetic captions with negation, and introduce the NegRefCOCOg benchmark.</p>
         <ul class="links"><li><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Park_Know_No_Better_A_Data-Driven_Approach_for_Enhancing_Negation_Awareness_ICCV_2025_paper.html">Paper</a></li><li><a href="https://arxiv.org/abs/2501.10913">arXiv</a></li><li><a href="https://github.com/parkquasar/NegationCLIP">Code</a></li><li><a href="https://huggingface.co/jerryray/negationclip">Models</a></li></ul>
       </div>
     </article>

@@ -306,16 +306,6 @@ h1 {
   letter-spacing: -0.012em;
 }
 .legend { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 1.5rem; color: var(--muted); font-size: 1rem; }
-.legend .swatch {
-  display: inline-block;
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.5rem;
-  border-radius: 4px;
-  background: var(--cream);
-  box-shadow: inset 4px 0 0 var(--amber), inset 0 0 0 1px var(--cream-line);
-  vertical-align: -0.12em;
-}
 
 .year {
   display: flex;
@@ -345,8 +335,6 @@ h1 {
 }
 .pub + .pub { margin-top: 1rem; }
 .pub:hover { border-color: var(--line-strong); box-shadow: var(--shadow); }
-.pub.first { border-color: var(--cream-line); background: var(--cream); box-shadow: inset 4px 0 0 var(--amber), var(--shadow-sm); }
-.pub.first:hover { box-shadow: inset 4px 0 0 var(--amber), var(--shadow); }
 
 .thumb {
   display: block;

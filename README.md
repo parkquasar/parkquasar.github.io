@@ -2,7 +2,7 @@
 
 Personal page of Junsung Park. Plain HTML and CSS, no build step.
 
-- `index.html`: all content. Each paper is one `<article class="pub">` card, newest first, under a year heading. First-author papers also have the class `first`.
+- `index.html`: all content. Each paper is one `<article class="pub">` card, newest first, under a year heading. First-author papers carry a "First author" tag.
 - `assets/style.css`: layout, type, and colours.
 - `assets/img/`: profile photo and one figure per paper (WebP).
 - `Junsung_Park_CV.pdf`: replace this file when the CV changes.
