@@ -138,11 +138,11 @@ a:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; border-
   margin-top: 2rem;
 }
 
-.ident { display: flex; align-items: center; gap: 1.5rem; }
+.ident { display: flex; align-items: center; gap: 2rem; }
 .avatar {
   flex: none;
-  width: 6.5rem;
-  height: 6.5rem;
+  width: 9rem;
+  height: 9rem;
   border: 3px solid #fff;
   border-radius: 50%;
   background: var(--tint-2);
@@ -214,8 +214,6 @@ h1 {
   transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
 }
 .contact a:hover { border-color: var(--cobalt); color: var(--cobalt); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(47, 95, 214, 0.18); }
-.contact a.primary { border-color: var(--navy); background: var(--navy); color: #fff; }
-.contact a.primary:hover { border-color: var(--navy-2); background: var(--navy-2); color: #fff; }
 .contact svg {
   width: 1.125rem;
   height: 1.125rem;
@@ -394,7 +392,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .nav nav a.opt { display: none; }
   .hero { padding-top: 2rem; }
   .ident { gap: 1rem; }
-  .avatar { width: 5rem; height: 5rem; }
+  .avatar { width: 6.5rem; height: 6.5rem; }
   .role { font-size: 1.0625rem; }
   .status { border-radius: 14px; font-size: 0.9375rem; }
   .contact a { padding: 0.4375rem 0.75rem; font-size: 1rem; }
@@ -412,8 +410,8 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 @media (max-width: 38rem) {
   .pub { grid-template-columns: minmax(0, 1fr); }
 }
-@media (max-width: 21.5rem) {
-  .ident { flex-direction: column; align-items: flex-start; }
+@media (max-width: 30rem) {
+  .ident { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
