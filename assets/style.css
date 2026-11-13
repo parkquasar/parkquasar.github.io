@@ -166,6 +166,20 @@ h1 {
 }
 .role { margin-top: 0.5rem; color: var(--text); font-size: 1.1875rem; line-height: 1.4; }
 .dept { color: var(--muted); font-size: 1.0625rem; line-height: 1.4; }
+.email { margin-top: 0.25rem; font-size: 1rem; line-height: 1.4; }
+.email a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--navy-2);
+  text-decoration: underline;
+  text-decoration-color: #93a8d6;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+.email a:hover { color: var(--cobalt); text-decoration-color: var(--cobalt); }
+.email svg { width: 1rem; height: 1rem; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
 .status {
   display: inline-flex;
@@ -397,17 +411,15 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .pub { grid-template-columns: 20rem minmax(0, 1fr); grid-template-rows: auto; }
   .thumb { align-self: start; }
 }
-/* ---- From 1024px: the name block stacks inside the profile column ---- */
+/* ---- From 1024px: a compact name block in the profile column ------- */
 @media (min-width: 64rem) {
-  .ident { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-  .avatar { width: 9rem; height: 9rem; }
-  h1 { font-size: 3.25rem; }
-  .role { margin-top: 0.625rem; font-size: 1.125rem; }
-  .status { margin-top: 1.25rem; }
-  /* Buttons at natural widths, each row stretched to the column edges
-     (CV, Email, Google Scholar / GitHub, LinkedIn). A sixth button wraps. */
-  .contact { gap: 0.5rem; margin-top: 1.25rem; }
-  .contact li { flex: 1 1 auto; }
+  .ident { gap: 1.125rem; }
+  .avatar { width: 7rem; height: 7rem; }
+  h1 { font-size: 2.5rem; white-space: nowrap; } /* about 6px to spare beside the photo; Safari's metrics are slightly wider */
+  .role { margin-top: 0.375rem; font-size: 1.0625rem; line-height: 1.35; }
+  .dept { font-size: 1rem; line-height: 1.35; }
+  /* Four equal buttons, two by two. */
+  .contact { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem; margin-top: 1rem; }
   .contact a { display: flex; justify-content: center; padding-left: 0.8125rem; padding-right: 0.8125rem; }
   .news li { grid-template-columns: 3.625rem minmax(0, 1fr); column-gap: 0.625rem; }
   .bio { margin-top: -0.4375rem; } /* first line level with the top of the photo */
@@ -446,13 +458,9 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .avatar { width: 6rem; height: 6rem; }
   .role { font-size: 1.0625rem; }
   .status { border-radius: 14px; font-size: 0.9375rem; }
-  .contact a { padding: 0.4375rem 0.75rem; font-size: 1rem; }
-  /* Buttons as an even block: three on the first row, two on the second.
-     Tuned for five buttons; adjust the spans if one is added or removed. */
-  .contact { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); }
-  .contact li:nth-child(-n+3) { grid-column: span 2; }
-  .contact li:nth-child(n+4) { grid-column: span 3; }
-  .contact a { display: flex; justify-content: center; }
+  /* Four equal buttons, two by two. */
+  .contact { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contact a { display: flex; justify-content: center; padding: 0.4375rem 0.75rem; font-size: 1rem; }
   .bio p { font-size: 1.125rem; text-wrap: wrap; } /* "pretty" leaves ragged last lines at this width */
   .block { padding-top: 3rem; }
   #publications { scroll-margin-top: calc(var(--nav-h) - 1.5rem); }
@@ -463,18 +471,20 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .news li:nth-child(2) { border-top: 1px solid var(--line); }
 }
 
-/* Buttons on phones: two, one (Google Scholar), two. */
-@media (max-width: 36rem) {
-  .contact li:nth-child(n) { grid-column: span 3; }
-  .contact li:nth-child(3) { grid-column: span 6; }
-}
 
 /* ---- Phones: figure above the text --------------------------------- */
 @media (max-width: 38rem) {
   .pub { grid-template-columns: minmax(0, 1fr); }
 }
-@media (max-width: 30rem) {
-  .ident { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+@media (max-width: 30rem) { /* the photo stays beside the name, a little smaller */
+  .ident { gap: 0.875rem; }
+  .avatar { width: 5rem; height: 5rem; }
+  h1 { font-size: 2.125rem; }
+  .contact a { gap: 0.375rem; padding-left: 0.625rem; padding-right: 0.625rem; font-size: 0.9375rem; }
+}
+@media (max-width: 22rem) { /* very narrow phones: labels only, so "Google Scholar" fits */
+  .contact svg { display: none; }
+  h1 { font-size: 1.875rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
