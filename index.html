@@ -11,11 +11,16 @@
   <meta property="og:title" content="Junsung Park">
   <meta property="og:description" content="AI researcher and Ph.D. candidate at Seoul National University. Research on Vision-Language Models and Large Language Models.">
   <meta property="og:url" content="https://parkquasar.github.io/">
+  <meta property="og:image" content="https://parkquasar.github.io/assets/img/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Junsung Park, Ph.D. candidate at Seoul National University">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#14284b">
   <link rel="icon" href="favicon.svg?v=b9212a78" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/source-sans-3-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/style.css?v=8d0dbef1">
+  <link rel="stylesheet" href="assets/style.css?v=f810a681">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -58,7 +63,7 @@
       <div class="hero-grid">
         <div class="hero-head">
           <div class="ident">
-            <img class="avatar" src="assets/img/profile.webp?v=cf6a03bd" width="320" height="320" alt="Portrait of Junsung Park">
+            <img class="avatar" src="assets/img/profile.webp?v=9cd8c5c7" width="320" height="320" alt="Portrait of Junsung Park">
             <div>
               <h1>Junsung Park</h1>
               <p class="role">Ph.D. Candidate, <span class="nb">Seoul National University</span></p>
@@ -77,34 +82,36 @@
 
         </div>
 
+        <div class="bio">
+          <p>I am an AI researcher and a Ph.D. candidate in Electrical and Computer Engineering at Seoul National University, advised by <a class="nb" href="https://data.snu.ac.kr/">Prof. Sungroh Yoon</a>. I received my B.S. in Electrical and Computer Engineering from Seoul National University in 2022.</p>
+          <p>My research focuses on <strong><span class="nb">Vision-Language</span> Models (VLMs)</strong> and <strong>Large Language Models (LLMs)</strong>, in particular on whether a model&rsquo;s answer is grounded in the evidence it is given, such as an image or a retrieved document.</p>
+          <p>On the VLM side, I have studied how a model finds, among many images, the one a question refers to <span class="nb">(<a href="#neurips2026">NeurIPS&nbsp;2026</a>)</span>, how <span class="nb">fine-tuning</span> on synthetic captions improves CLIP&rsquo;s understanding of negation <span class="nb">(<a href="#iccv2025">ICCV&nbsp;2025</a>)</span>, and how <span class="nb">post-training</span> can personalize a model&rsquo;s responses <span class="nb">(<a href="#icml2026">ICML&nbsp;2026</a>)</span>. On the LLM side, I have worked on <span class="nb">multi-hop</span> reasoning over misordered documents <span class="nb">(<a href="#naacl2025">NAACL&nbsp;2025</a>)</span> and on using LLMs for interactive <span class="nb">text-to-image</span> retrieval <span class="nb">(<a href="#acl2024">ACL&nbsp;2024</a>)</span>. My papers have appeared in NeurIPS, ICML, ICLR, ICCV, ACL, NAACL, and TPAMI.</p>
+          <p>I am currently interested in making VLMs reliable at understanding what they see. This includes visual and <span class="nb">multi-image</span> reasoning, grounding and hallucination, and benchmarks that measure these abilities. I am also interested in <span class="nb">post-training</span> methods such as reinforcement learning and <span class="nb">on-policy</span> distillation.</p>
+        </div>
+
         <aside class="side">
           <section class="card news" aria-labelledby="h-news">
             <h2 id="h-news">News</h2>
             <div class="scroller">
+              <!-- Newest first. Venue names use &nbsp; so they stay on one line. On wide screens the
+                   list scrolls inside the card; on narrow screens it splits into two columns by itself. -->
               <ul>
-                <li><time datetime="2026-12">Dec 2026</time><span>Presenting at <a href="#neurips2026">NeurIPS 2026</a> in <span class="nb">Sydney, Australia</span></span></li>
-                <li><time datetime="2026-10">Oct 2026</time><span>Paper accepted to <a href="#tpami2026">IEEE TPAMI</a></span></li>
-                <li><time datetime="2026-09">Sep 2026</time><span>Paper accepted to <a href="#neurips2026">NeurIPS 2026</a></span></li>
-                <li><time datetime="2026-07">Jul 2026</time><span>Presented at <a href="#icml2026">ICML 2026</a> in <span class="nb">Seoul, Korea</span></span></li>
-                <li><time datetime="2026-04">Apr 2026</time><span>Paper accepted to <a href="#icml2026">ICML 2026</a></span></li>
-                <li><time datetime="2025-10">Oct 2025</time><span>Presented at <a href="#iccv2025">ICCV 2025</a> in <span class="nb">Honolulu, Hawaii</span></span></li>
-                <li><time datetime="2025-06">Jun 2025</time><span>Paper accepted to <a href="#iccv2025">ICCV 2025</a></span></li>
-                <li><time datetime="2025-01">Jan 2025</time><span>Paper accepted to <a href="#naacl2025">NAACL 2025</a> Findings</span></li>
-                <li><time datetime="2024-05">May 2024</time><span>Paper accepted to <a href="#acl2024">ACL 2024</a> as an oral</span></li>
-                <li><time datetime="2024-05">May 2024</time><span>Presented at <a href="#iclr2024">ICLR 2024</a> in <span class="nb">Vienna, Austria</span></span></li>
-                <li><time datetime="2024-01">Jan 2024</time><span>Two papers accepted to <a href="#iclr2024">ICLR 2024</a>, one as a spotlight</span></li>
-                <li><time datetime="2023-09">Sep 2023</time><span>Paper accepted to <a href="#neurips2023">NeurIPS 2023</a></span></li>
+                <li><time datetime="2026-12">Dec 2026</time><span>Presenting at <a href="#neurips2026">NeurIPS&nbsp;2026</a> in <span class="nb">Sydney, Australia</span></span></li>
+                <li><time datetime="2026-10">Oct 2026</time><span>Paper accepted to <a href="#tpami2026">IEEE&nbsp;TPAMI</a></span></li>
+                <li><time datetime="2026-09">Sep 2026</time><span>Paper accepted to <a href="#neurips2026">NeurIPS&nbsp;2026</a></span></li>
+                <li><time datetime="2026-07">Jul 2026</time><span>Presented at <a href="#icml2026">ICML&nbsp;2026</a> in <span class="nb">Seoul, Korea</span></span></li>
+                <li><time datetime="2026-04">Apr 2026</time><span>Paper accepted to <a href="#icml2026">ICML&nbsp;2026</a></span></li>
+                <li><time datetime="2025-10">Oct 2025</time><span>Presented at <a href="#iccv2025">ICCV&nbsp;2025</a> in <span class="nb">Honolulu, Hawaii</span></span></li>
+                <li><time datetime="2025-06">Jun 2025</time><span>Paper accepted to <a href="#iccv2025">ICCV&nbsp;2025</a></span></li>
+                <li><time datetime="2025-01">Jan 2025</time><span>Paper accepted to <span class="nb"><a href="#naacl2025">NAACL&nbsp;2025</a> Findings</span></span></li>
+                <li><time datetime="2024-05">May 2024</time><span>Paper accepted to <a href="#acl2024">ACL&nbsp;2024</a> <span class="nb">as an oral</span></span></li>
+                <li><time datetime="2024-05">May 2024</time><span>Presented at <a href="#iclr2024">ICLR&nbsp;2024</a> in <span class="nb">Vienna, Austria</span></span></li>
+                <li><time datetime="2024-01">Jan 2024</time><span>Two papers accepted to <a href="#iclr2024">ICLR&nbsp;2024</a>, one as a&nbsp;spotlight</span></li>
+                <li><time datetime="2023-09">Sep 2023</time><span>Paper accepted to <a href="#neurips2023">NeurIPS&nbsp;2023</a></span></li>
               </ul>
             </div>
           </section>
         </aside>
-
-        <div class="bio">
-          <p>I am an AI researcher and a Ph.D. candidate in Electrical and Computer Engineering at Seoul National University, advised by <a class="nb" href="https://data.snu.ac.kr/">Prof. Sungroh Yoon</a>. I received my B.S. in Electrical and Computer Engineering from Seoul National University in 2022.</p>
-          <p>My research focuses on <strong><span class="nb">Vision-Language</span> Models (VLMs)</strong> and <strong>Large Language Models (LLMs)</strong>, in particular on whether a model&rsquo;s answer is grounded in the evidence it is given, such as an image or a retrieved document.</p>
-          <p>On the VLM side, I have studied how a model finds, among many images, the one a question refers to <span class="nb">(<a href="#neurips2026">NeurIPS 2026</a>)</span>, how <span class="nb">fine-tuning</span> on synthetic captions improves CLIP&rsquo;s understanding of negation <span class="nb">(<a href="#iccv2025">ICCV 2025</a>)</span>, and how <span class="nb">post-training</span> can personalize a model&rsquo;s responses <span class="nb">(<a href="#icml2026">ICML 2026</a>)</span>. On the LLM side, I have worked on <span class="nb">multi-hop</span> reasoning over misordered documents <span class="nb">(<a href="#naacl2025">NAACL 2025</a>)</span> and on using LLMs for interactive <span class="nb">text-to-image</span> retrieval <span class="nb">(<a href="#acl2024">ACL 2024</a>)</span>. My papers have appeared in NeurIPS, ICML, ICLR, ICCV, ACL, NAACL, and TPAMI.</p>
-          <p>I am currently interested in making VLMs reliable at understanding what they see. This includes visual and <span class="nb">multi-image</span> reasoning, grounding and hallucination, and benchmarks that measure these abilities. I am also interested in <span class="nb">post-training</span> methods such as reinforcement learning and <span class="nb">on-policy</span> distillation.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -117,33 +124,36 @@
       <div class="legend"><span>* Equal contribution</span></div>
     </div>
 
+    <!-- Year labels are headings (level 3) with their own styling; paper titles are h4.
+         Each card id is also used by links in the introduction and News. Only the first
+         card's figure loads eagerly: when adding a paper at the top, move loading="lazy". -->
     <div class="year" role="heading" aria-level="3">2026</div>
 
     <article class="pub" id="neurips2026">
-      <a class="thumb" href="assets/img/heads-full.webp?v=462a0821" aria-label="Open the figure at full size"><img src="assets/img/heads.webp?v=57a70921" width="1100" height="595" alt="Figure 1 of the paper: a multi-image question, the pointer score computed from a head's attention, and the writer score computed from the head's output."></a>
+      <a class="thumb" href="assets/img/heads-full.webp?v=462a0821"><img src="assets/img/heads.webp?v=57a70921" width="1100" height="595" alt="Figure 1 of the paper: a multi-image question, the pointer score computed from a head's attention, and the writer score computed from the head's output. Opens the full-size figure."></a>
       <div>
         <div class="meta"><span class="venue">NeurIPS 2026</span><span class="tag first">First author</span></div>
-        <h3><a href="https://arxiv.org/abs/2611.04903">Heads That Write, Not Just Point: Image Retrieval Heads in <span class="nb">Vision-Language</span> Models</a></h3>
+        <h4><a href="https://arxiv.org/abs/2611.04903">Heads That Write, Not Just Point: Image Retrieval Heads in <span class="nb">Vision-Language</span> Models</a></h4>
         <p class="authors"><span class="me">Junsung Park</span>, Sangwon Yu, Donghun Kang, Yeongtak Oh, Jaewon Jeong, Gyeongtae Yoo, Han Cheol Moon, Jungbeom Lee, Sungroh Yoon</p>
         <p class="desc">We separate attention heads that point to the target image from heads whose outputs identify it, and find that inference is most sensitive to heads in both sets.</p>
         <ul class="links"><li><a href="https://arxiv.org/abs/2611.04903">Paper</a></li><li><a href="https://github.com/parkquasar/Image-Retrieval-Heads">Code</a></li><li><a href="https://huggingface.co/datasets/jerryray/ICIR-MCQ">Dataset</a></li></ul>
       </div>
     </article>
     <article class="pub" id="tpami2026">
-      <a class="thumb" href="assets/img/bgf-full.webp?v=97511fa3" aria-label="Open the figure at full size"><img src="assets/img/bgf.webp?v=bac4239e" width="1100" height="599" loading="lazy" alt="Figure 1 of the paper: accuracy and training speed of Adam and the proposed optimizer as spurious correlation increases."></a>
+      <a class="thumb" href="assets/img/bgf-full.webp?v=97511fa3"><img src="assets/img/bgf.webp?v=bac4239e" width="1100" height="599" loading="lazy" alt="Figure 1 of the paper: accuracy and training speed of Adam and the proposed optimizer as spurious correlation increases. Opens the full-size figure."></a>
       <div>
         <div class="meta"><span class="venue">IEEE TPAMI</span></div>
-        <h3><a href="https://ieeexplore.ieee.org/document/11734045">Balancing Gradient Frequencies Facilitates Inductive Inference in Algorithmic Reasoning</a></h3>
+        <h4><a href="https://ieeexplore.ieee.org/document/11734045">Balancing Gradient Frequencies Facilitates Inductive Inference in Algorithmic Reasoning</a></h4>
         <p class="authors">Bong Gyun Kang*, Jisoo Mok*, <span class="me">Junsung Park</span>, Dongjin Lee, Sungroh Yoon</p>
         <p class="desc">We show that Adam is easily misled by spurious correlations in algorithmic reasoning, and propose an optimizer that balances low- and <span class="nb">high-frequency</span> gradients.</p>
         <ul class="links"><li><a href="https://ieeexplore.ieee.org/document/11734045">Paper</a></li></ul>
       </div>
     </article>
     <article class="pub" id="icml2026">
-      <a class="thumb" href="assets/img/covip-full.webp?v=4ab65956" aria-label="Open the figure at full size"><img src="assets/img/covip.webp?v=1f22bce1" width="1100" height="438" loading="lazy" alt="Figure 1 of the paper: a vision-language model answering about a new image with and without contextualized visual personalization."></a>
+      <a class="thumb" href="assets/img/covip-full.webp?v=4ab65956"><img src="assets/img/covip.webp?v=1f22bce1" width="1100" height="438" loading="lazy" alt="Figure 1 of the paper: a vision-language model answering about a new image with and without contextualized visual personalization. Opens the full-size figure."></a>
       <div>
         <div class="meta"><span class="venue">ICML 2026</span></div>
-        <h3><a href="https://proceedings.mlr.press/v306/oh26c.html">Contextualized Visual Personalization in <span class="nb">Vision-Language</span> Models</a></h3>
+        <h4><a href="https://proceedings.mlr.press/v306/oh26c.html">Contextualized Visual Personalization in <span class="nb">Vision-Language</span> Models</a></h4>
         <p class="authors">Yeongtak Oh*, Sangwon Yu*, <span class="me">Junsung Park</span>, Han Cheol Moon, Jisoo Mok, Sungroh Yoon</p>
         <p class="desc">We formalize contextualized visual personalization and improve it with <span class="nb">reinforcement-learning-based</span> <span class="nb">post-training</span>.</p>
         <ul class="links"><li><a href="https://proceedings.mlr.press/v306/oh26c.html">Paper</a></li><li><a href="https://arxiv.org/abs/2602.03454">arXiv</a></li><li><a href="https://oyt9306.github.io/covip.github.io/">Project</a></li></ul>
@@ -153,20 +163,20 @@
     <div class="year" role="heading" aria-level="3">2025</div>
 
     <article class="pub" id="iccv2025">
-      <a class="thumb" href="assets/img/negationclip-full.webp?v=5c2f1232" aria-label="Open the figure at full size"><img src="assets/img/negationclip.webp?v=a908447a" width="1100" height="644" loading="lazy" alt="Figure 1 of the paper: CLIP and NegationCLIP on image-text matching, text-to-image generation, and referring image segmentation with negated prompts."></a>
+      <a class="thumb" href="assets/img/negationclip-full.webp?v=5c2f1232"><img src="assets/img/negationclip.webp?v=a908447a" width="1100" height="644" loading="lazy" alt="Figure 1 of the paper: CLIP and NegationCLIP on image-text matching, text-to-image generation, and referring image segmentation with negated prompts. Opens the full-size figure."></a>
       <div>
         <div class="meta"><span class="venue">ICCV 2025</span><span class="tag first">First author</span></div>
-        <h3><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Park_Know_No_Better_A_Data-Driven_Approach_for_Enhancing_Negation_Awareness_ICCV_2025_paper.html">Know &ldquo;No&rdquo; Better: A <span class="nb">Data-Driven</span> Approach for Enhancing Negation Awareness in CLIP</a></h3>
+        <h4><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Park_Know_No_Better_A_Data-Driven_Approach_for_Enhancing_Negation_Awareness_ICCV_2025_paper.html">Know &ldquo;No&rdquo; Better: A <span class="nb">Data-Driven</span> Approach for Enhancing Negation Awareness in CLIP</a></h4>
         <p class="authors"><span class="me">Junsung Park</span>, Jungbeom Lee, Jongyoon Song, Sangwon Yu, Dahuin Jung, Sungroh Yoon</p>
         <p class="desc">We improve CLIP&rsquo;s understanding of negation by <span class="nb">fine-tuning</span> it on synthetic captions with negation, and introduce the NegRefCOCOg benchmark.</p>
         <ul class="links"><li><a href="https://openaccess.thecvf.com/content/ICCV2025/html/Park_Know_No_Better_A_Data-Driven_Approach_for_Enhancing_Negation_Awareness_ICCV_2025_paper.html">Paper</a></li><li><a href="https://arxiv.org/abs/2501.10913">arXiv</a></li><li><a href="https://github.com/parkquasar/NegationCLIP">Code</a></li><li><a href="https://huggingface.co/jerryray/negationclip">Models</a></li></ul>
       </div>
     </article>
     <article class="pub" id="naacl2025">
-      <a class="thumb" href="assets/img/core-full.webp?v=f82b4dc2" aria-label="Open the figure at full size"><img src="assets/img/core.webp?v=ca9d0289" width="1100" height="1007" loading="lazy" alt="Figure 1 of the paper: the same supporting documents lead to a wrong answer in a misleading order and to the right answer in the proper order."></a>
+      <a class="thumb" href="assets/img/core-full.webp?v=f82b4dc2"><img src="assets/img/core.webp?v=ca9d0289" width="1100" height="1007" loading="lazy" alt="Figure 1 of the paper: the same supporting documents lead to a wrong answer in a misleading order and to the right answer in the proper order. Opens the full-size figure."></a>
       <div>
         <div class="meta"><span class="venue">NAACL 2025</span><span class="tag">Findings</span></div>
-        <h3><a href="https://aclanthology.org/2025.findings-naacl.360/">Unleashing <span class="nb">Multi-Hop</span> Reasoning Potential in Large Language Models through Repetition of Misordered Context</a></h3>
+        <h4><a href="https://aclanthology.org/2025.findings-naacl.360/">Unleashing <span class="nb">Multi-Hop</span> Reasoning Potential in Large Language Models through Repetition of Misordered Context</a></h4>
         <p class="authors">Sangwon Yu, Ik-hwan Kim, Jongyoon Song, Saehyung Lee, <span class="me">Junsung Park</span>, Sungroh Yoon</p>
         <p class="desc">We find that <span class="nb">multi-hop</span> reasoning is sensitive to the order of supporting documents, and address it by repeating the context in the prompt.</p>
         <ul class="links"><li><a href="https://aclanthology.org/2025.findings-naacl.360/">Paper</a></li><li><a href="https://arxiv.org/abs/2410.07103">arXiv</a></li></ul>
@@ -176,30 +186,30 @@
     <div class="year" role="heading" aria-level="3">2024</div>
 
     <article class="pub" id="acl2024">
-      <a class="thumb" href="assets/img/plugir-full.webp?v=d1bf8436" aria-label="Open the figure at full size"><img src="assets/img/plugir.webp?v=5f0a03a7" width="1100" height="479" loading="lazy" alt="Figure 1 of the paper: the PlugIR framework, in which an LLM reformulates the dialogue and asks questions to refine retrieval."></a>
+      <a class="thumb" href="assets/img/plugir-full.webp?v=d1bf8436"><img src="assets/img/plugir.webp?v=5f0a03a7" width="1100" height="479" loading="lazy" alt="Figure 1 of the paper: the PlugIR framework, in which an LLM reformulates the dialogue and asks questions to refine retrieval. Opens the full-size figure."></a>
       <div>
         <div class="meta"><span class="venue">ACL 2024</span><span class="tag honor">Oral</span></div>
-        <h3><a href="https://aclanthology.org/2024.acl-long.46/">Interactive <span class="nb">Text-to-Image</span> Retrieval with Large Language Models: A <span class="nb">Plug-and-Play</span> Approach</a></h3>
+        <h4><a href="https://aclanthology.org/2024.acl-long.46/">Interactive <span class="nb">Text-to-Image</span> Retrieval with Large Language Models: A <span class="nb">Plug-and-Play</span> Approach</a></h4>
         <p class="authors">Saehyung Lee*, Sangwon Yu*, <span class="me">Junsung Park</span>, Jihun Yi, Sungroh Yoon</p>
         <p class="desc">We reformulate the dialogue with an LLM for interactive <span class="nb">text-to-image</span> retrieval, which makes the method usable with <span class="nb">black-box</span> retrieval models.</p>
         <ul class="links"><li><a href="https://aclanthology.org/2024.acl-long.46/">Paper</a></li><li><a href="https://arxiv.org/abs/2406.03411">arXiv</a></li><li><a href="https://github.com/Saehyung-Lee/PlugIR">Code</a></li></ul>
       </div>
     </article>
     <article class="pub" id="iclr2024">
-      <a class="thumb" href="assets/img/deyo-full.webp?v=2c50f9b2" aria-label="Open the figure at full size"><img src="assets/img/crops/deyo.webp?v=54743f99" width="1100" height="813" loading="lazy" alt="Part of Figure 4 of the paper, the method overview: an image and its patch-shuffled version go through the model, and the method compares the two predictions."></a>
+      <a class="thumb" href="assets/img/deyo-full.webp?v=2c50f9b2"><img src="assets/img/crops/deyo.webp?v=54743f99" width="1100" height="813" loading="lazy" alt="Part of Figure 4 of the paper, the method overview: an image and its patch-shuffled version go through the model, and the method compares the two predictions. Opens the full-size figure."></a>
       <div>
         <div class="meta"><span class="venue">ICLR 2024</span><span class="tag honor">Spotlight</span></div>
-        <h3><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/cd0665986c1e9c15f6569ac944bcf88a-Abstract-Conference.html">Entropy is not Enough for <span class="nb">Test-Time</span> Adaptation: From the Perspective of Disentangled Factors</a></h3>
+        <h4><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/cd0665986c1e9c15f6569ac944bcf88a-Abstract-Conference.html">Entropy is not Enough for <span class="nb">Test-Time</span> Adaptation: From the Perspective of Disentangled Factors</a></h4>
         <p class="authors">Jonghyun Lee*, Dahuin Jung*, Saehyung Lee, <span class="me">Junsung Park</span>, Juhyeon Shin, Uiwon Hwang, Sungroh Yoon</p>
         <p class="desc">We show that entropy alone is an unreliable confidence metric for <span class="nb">test-time</span> adaptation, and add a metric based on object shape.</p>
         <ul class="links"><li><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/cd0665986c1e9c15f6569ac944bcf88a-Abstract-Conference.html">Paper</a></li><li><a href="https://arxiv.org/abs/2403.07366">arXiv</a></li><li><a href="https://whitesnowdrop.github.io/DeYO/">Project</a></li></ul>
       </div>
     </article>
     <article class="pub" id="iclr2024-dafa">
-      <a class="thumb" href="assets/img/dafa-full.webp?v=72c06c72" aria-label="Open the figure at full size"><img src="assets/img/crops/dafa.webp?v=46a577b1" width="1100" height="619" loading="lazy" alt="Part of Figure 1 of the paper: a previous approach and DAFA compared on similar classes."></a>
+      <a class="thumb" href="assets/img/dafa-full.webp?v=72c06c72"><img src="assets/img/crops/dafa.webp?v=46a577b1" width="1100" height="619" loading="lazy" alt="Part of Figure 1 of the paper: a previous approach and DAFA compared on similar classes. Opens the full-size figure."></a>
       <div>
         <div class="meta"><span class="venue">ICLR 2024</span></div>
-        <h3><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/7bd4a7d0e6773072c2e3c77b11d93065-Abstract-Conference.html">DAFA: <span class="nb">Distance-Aware</span> Fair Adversarial Training</a></h3>
+        <h4><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/7bd4a7d0e6773072c2e3c77b11d93065-Abstract-Conference.html">DAFA: <span class="nb">Distance-Aware</span> Fair Adversarial Training</a></h4>
         <p class="authors">Hyungyu Lee, Saehyung Lee, Hyemi Jang, <span class="me">Junsung Park</span>, Ho Bae, Sungroh Yoon</p>
         <p class="desc">We improve robust fairness in adversarial training with <span class="nb">class-wise</span> loss weights and margins set by class similarity.</p>
         <ul class="links"><li><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/7bd4a7d0e6773072c2e3c77b11d93065-Abstract-Conference.html">Paper</a></li><li><a href="https://arxiv.org/abs/2401.12532">arXiv</a></li><li><a href="https://github.com/rucy74/DAFA">Code</a></li></ul>
@@ -209,10 +219,10 @@
     <div class="year" role="heading" aria-level="3">2023</div>
 
     <article class="pub" id="neurips2023">
-      <a class="thumb" href="assets/img/puca-full.webp?v=56450649" aria-label="Open the figure at full size"><img src="assets/img/crops/puca.webp?v=b874ea13" width="1100" height="619" loading="lazy" alt="A noisy image crop and the same crop denoised by PUCA."></a>
+      <a class="thumb" href="assets/img/puca-full.webp?v=56450649"><img src="assets/img/crops/puca.webp?v=b874ea13" width="1100" height="619" loading="lazy" alt="A noisy image crop and the same crop denoised by PUCA. Opens the full-size figure."></a>
       <div>
         <div class="meta"><span class="venue">NeurIPS 2023</span></div>
-        <h3><a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/3d226fb8fbd6ee6ec70d0427f1319707-Abstract-Conference.html">PUCA: <span class="nb">Patch-Unshuffle</span> and Channel Attention for Enhanced <span class="nb">Self-Supervised</span> Image Denoising</a></h3>
+        <h4><a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/3d226fb8fbd6ee6ec70d0427f1319707-Abstract-Conference.html">PUCA: <span class="nb">Patch-Unshuffle</span> and Channel Attention for Enhanced <span class="nb">Self-Supervised</span> Image Denoising</a></h4>
         <p class="authors">Hyemi Jang, <span class="me">Junsung Park</span>, Dahuin Jung, Jaihyun Lew, Ho Bae, Sungroh Yoon</p>
         <p class="desc">We propose a <span class="nb">U-Net</span> for <span class="nb">self-supervised</span> image denoising that widens the receptive field with <span class="nb">patch-unshuffle</span> and dilated attention.</p>
         <ul class="links"><li><a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/3d226fb8fbd6ee6ec70d0427f1319707-Abstract-Conference.html">Paper</a></li><li><a href="https://arxiv.org/abs/2310.10088">arXiv</a></li><li><a href="https://github.com/HyemiEsme/PUCA">Code</a></li></ul>
@@ -220,22 +230,6 @@
     </article>
   </section>
 
-  <section class="wrap block" id="service" aria-labelledby="h-service">
-    <div class="sec"><h2 id="h-service">Service and Teaching</h2></div>
-    <div class="card facts">
-      <div class="row">
-        <h3>Conference Reviewer</h3>
-        <ul><li><span>CVPR, NeurIPS, ICLR</span></li></ul>
-      </div>
-      <div class="row">
-        <h3>Teaching Assistant</h3>
-        <ul>
-          <li><span>Machine Learning Fundamentals</span><span class="when">Spring 2026</span></li>
-          <li><span>Machine Learning Fundamentals and Applications in Electrical and Computer Engineering</span><span class="when">Spring 2023</span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer>
