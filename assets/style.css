@@ -131,15 +131,18 @@ a:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; border-
   mask-image: linear-gradient(transparent, #000 5rem, #000 58%, transparent);
   pointer-events: none;
 }
-.hero-grid { /* name and links | News, exactly as tall as them; the introduction runs full width below */
+.hero-grid { /* profile column (photo, name, links, News) | introduction */
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 23rem;
-  grid-template-areas: "head news" "bio bio";
+  grid-template-columns: 22.5rem minmax(0, 1fr);
+  grid-template-areas: "head bio" "news bio";
+  grid-template-rows: auto 1fr;
   column-gap: 3rem;
-  row-gap: 2.5rem;
+  row-gap: 1.75rem;
 }
 .hero-head { grid-area: head; }
-.side { position: relative; grid-area: news; min-height: 15rem; } /* the card is out of flow, so the name block sets the row height (at least 15rem) */
+/* The News card is out of flow, so the introduction sets the height and the card ends level
+   with its last line. min-height keeps a usable card if the introduction gets shorter. */
+.side { position: relative; grid-area: news; min-height: 14rem; }
 .bio { grid-area: bio; }
 
 .ident { display: flex; align-items: center; gap: 1.75rem; }
@@ -389,23 +392,34 @@ a.thumb:hover { border-color: var(--cobalt); box-shadow: 0 6px 18px rgba(47, 95,
 footer { margin-top: 4rem; border-top: 1px solid var(--line-strong); color: var(--muted); font-size: 1rem; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.25rem 1.5rem; padding-top: 1.5rem; padding-bottom: 3rem; }
 
-/* ---- Below 70rem: narrower News column; figure boxes keep their 16:9 size ---- */
+/* ---- Below 70rem: narrower figures; figure boxes keep their 16:9 size ---- */
 @media (max-width: 70rem) {
   .pub { grid-template-columns: 20rem minmax(0, 1fr); grid-template-rows: auto; }
   .thumb { align-self: start; }
 }
-/* 1024 to 1120px: News stays beside the name in a slightly narrower card; the
-   buttons and the date column tighten a little so both still fit on one line. */
-@media (min-width: 64rem) and (max-width: 70rem) {
-  .hero-grid { grid-template-columns: minmax(0, 1fr) 22rem; column-gap: 1.75rem; }
-  .contact { gap: 0.375rem; } /* fits beside a classic page scrollbar at 1024px */
-  .contact a { padding-left: 0.75rem; padding-right: 0.75rem; }
+/* ---- From 1024px: the name block stacks inside the profile column ---- */
+@media (min-width: 64rem) {
+  .ident { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .avatar { width: 9rem; height: 9rem; }
+  h1 { font-size: 3.25rem; }
+  .role { margin-top: 0.625rem; font-size: 1.125rem; }
+  .status { margin-top: 1.25rem; }
+  /* Buttons at natural widths, each row stretched to the column edges
+     (CV, Email, Google Scholar / GitHub, LinkedIn). A sixth button wraps. */
+  .contact { gap: 0.5rem; margin-top: 1.25rem; }
+  .contact li { flex: 1 1 auto; }
+  .contact a { display: flex; justify-content: center; padding-left: 0.8125rem; padding-right: 0.8125rem; }
   .news li { grid-template-columns: 3.625rem minmax(0, 1fr); column-gap: 0.625rem; }
+  .bio { margin-top: -0.4375rem; } /* first line level with the top of the photo */
+}
+/* 1024 to 1120px: a little less gutter so the introduction keeps about 60 characters a line. */
+@media (min-width: 64rem) and (max-width: 70rem) {
+  .hero-grid { column-gap: 2.5rem; }
 }
 
 /* ---- Below 1024px: News moves under the introduction, in full ------ */
 @media (max-width: 63.98rem) {
-  .hero-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "bio" "news"; row-gap: 2rem; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "bio" "news"; grid-template-rows: none; row-gap: 2rem; }
   .side { min-height: 0; }
   .side .news { position: static; padding-bottom: 1rem; }
   .news .scroller { overflow: visible; }
