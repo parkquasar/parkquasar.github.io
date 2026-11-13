@@ -87,7 +87,12 @@ a { color: inherit; text-decoration: none; }
 a:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; border-radius: 4px; }
 ::selection { background: #cfdcf6; }
 .nb { white-space: nowrap; }
-[id] { scroll-margin-top: 5.5rem; }
+/* In-page jumps land just below the sticky top bar (3.5rem + 4px top rule + 1px bottom rule).
+   Sections hide part of their own top padding, so nothing of the section above shows. */
+:root { --nav-h: calc(3.5rem + 5px); }
+[id] { scroll-margin-top: calc(var(--nav-h) + 1.5rem); }
+.pub { scroll-margin-top: calc(var(--nav-h) + 1rem); } /* = the gap between cards */
+#publications { scroll-margin-top: calc(var(--nav-h) - 2rem); }
 .pub:target { border-color: var(--cobalt); box-shadow: 0 0 0 3px rgba(47, 95, 214, 0.18), var(--shadow); }
 
 .wrap { max-width: 68rem; margin: 0 auto; padding-left: 1.5rem; padding-right: 1.5rem; }
@@ -130,12 +135,11 @@ a:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; border-
   mask-image: linear-gradient(#000 60%, transparent 100%);
   pointer-events: none;
 }
-.hero-grid { /* introduction | News; the row height is set by the introduction */
+.hero-grid { /* name, links and introduction | News, which starts level with the photo */
   display: grid;
   grid-template-columns: minmax(0, 1fr) 21.5rem;
   gap: 3rem;
-  align-items: stretch;
-  margin-top: 2rem;
+  align-items: start;
 }
 
 .ident { display: flex; align-items: center; gap: 1.75rem; }
@@ -225,9 +229,10 @@ h1 {
   stroke-linejoin: round;
 }
 
+.main .bio { margin-top: 2rem; }
+
 /* Side column: news */
-.side { position: relative; }
-.side .news { position: absolute; inset: 0; display: flex; flex-direction: column; padding-bottom: 0.5rem; }
+.side .news { padding-bottom: 0.75rem; }
 .card {
   padding: 1.5rem;
   border: 1px solid var(--line);
@@ -242,18 +247,7 @@ h1 {
   font-weight: 600;
   line-height: 1.3;
 }
-.news .scroller { position: relative; flex: 1; min-height: 0; margin-top: 0.5rem; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
-.news .scroller::after { /* fade at the bottom edge while more items are below; at the end it covers only the list's bottom padding */
-  content: "";
-  position: sticky;
-  bottom: 0;
-  display: block;
-  height: 1.5rem;
-  margin-top: -1.5rem;
-  background: linear-gradient(rgba(255, 255, 255, 0), #fff);
-  pointer-events: none;
-}
-.news ul { padding-bottom: 1.5rem; }
+.news ul { margin-top: 0.5rem; }
 .news li {
   display: grid;
   grid-template-columns: 4rem minmax(0, 1fr);
@@ -373,10 +367,8 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 @media (max-width: 70rem) {
   .pub { grid-template-columns: 20rem minmax(0, 1fr); }
   .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
-  .side .news { position: static; padding-bottom: 1rem; }
-  .news .scroller { overflow: visible; }
-  .news .scroller::after { display: none; }
-  .news ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(6, auto); grid-auto-flow: column; column-gap: 3rem; padding-bottom: 0; }
+  .side .news { padding-bottom: 1rem; }
+  .news ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(6, auto); grid-auto-flow: column; column-gap: 3rem; }
   .news li { border-top: 1px solid var(--line); }
   .news li:nth-child(6n+1) { border-top: 0; }
 }
@@ -398,6 +390,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .contact a { padding: 0.4375rem 0.75rem; font-size: 1rem; }
   .bio p { font-size: 1.125rem; }
   .block { padding-top: 3rem; }
+  #publications { scroll-margin-top: calc(var(--nav-h) - 1.5rem); }
   .sec h2 { font-size: 1.75rem; }
   .pub { grid-template-columns: 12.5rem minmax(0, 1fr); gap: 1rem; padding: 1rem; }
   .pub h3 { font-size: 1.1875rem; }
@@ -425,7 +418,4 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .hero::before { display: none; }
   .pub, .card { box-shadow: none; }
   .pub { break-inside: avoid; }
-  .side .news { position: static; }
-  .news .scroller { overflow: visible; }
-  .news .scroller::after { display: none; }
 }

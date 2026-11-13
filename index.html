@@ -15,7 +15,7 @@
   <link rel="icon" href="favicon.svg?v=b9212a78" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/source-sans-3-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/style.css?v=5d62a56b">
+  <link rel="stylesheet" href="assets/style.css?v=5ca5dd31">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -55,6 +55,8 @@
   <!-- ===== About ====================================================== -->
   <section class="hero" id="about">
     <div class="wrap">
+      <div class="hero-grid">
+        <div class="main">
       <div class="hero-head">
           <div class="ident">
             <img class="avatar" src="assets/img/profile.webp?v=cf6a03bd" width="320" height="320" alt="Portrait of Junsung Park">
@@ -75,19 +77,18 @@
           </ul>
 
       </div>
-      <div class="hero-grid">
           <div class="bio">
             <p>I am an AI researcher and a Ph.D. candidate in Electrical and Computer Engineering at Seoul National University, advised by <a class="nb" href="https://data.snu.ac.kr/">Prof. Sungroh Yoon</a>. I received my B.S. in Electrical and Computer Engineering from Seoul National University in 2022.</p>
             <p>My research focuses on <strong><span class="nb">Vision-Language</span> Models (VLMs)</strong> and <strong>Large Language Models (LLMs)</strong>, in particular on whether a model&rsquo;s answer is grounded in the evidence it is given, such as an image or a retrieved document.</p>
             <p>On the VLM side, I have studied how a model finds, among many images, the one a question refers to <span class="nb">(<a href="#neurips2026">NeurIPS 2026</a>)</span>, how <span class="nb">fine-tuning</span> on synthetic captions improves CLIP&rsquo;s understanding of negation <span class="nb">(<a href="#iccv2025">ICCV 2025</a>)</span>, and how <span class="nb">post-training</span> can personalize a model&rsquo;s responses <span class="nb">(<a href="#icml2026">ICML 2026</a>)</span>. On the LLM side, I have worked on <span class="nb">multi-hop</span> reasoning over misordered documents <span class="nb">(<a href="#naacl2025">NAACL 2025</a>)</span> and on using LLMs for interactive <span class="nb">text-to-image</span> retrieval <span class="nb">(<a href="#acl2024">ACL 2024</a>)</span>. My papers have appeared in NeurIPS, ICML, ICLR, ICCV, ACL, NAACL, and TPAMI.</p>
             <p>I am currently interested in making VLMs reliable at understanding what they see. This includes visual and <span class="nb">multi-image</span> reasoning, grounding and hallucination, and benchmarks that measure these abilities. I am also interested in <span class="nb">post-training</span> methods such as reinforcement learning and <span class="nb">on-policy</span> distillation.</p>
           </div>
+        </div>
 
         <aside class="side">
           <section class="card news" aria-labelledby="h-news">
             <h2 id="h-news">News</h2>
-            <div class="scroller">
-              <ul>
+            <ul>
                 <li><time datetime="2026-12">Dec 2026</time><span>Presenting at <a href="#neurips2026">NeurIPS 2026</a> in <span class="nb">Sydney, Australia</span></span></li>
                 <li><time datetime="2026-10">Oct 2026</time><span>Paper accepted to <a href="#tpami2026">IEEE TPAMI</a></span></li>
                 <li><time datetime="2026-09">Sep 2026</time><span>Paper accepted to <a href="#neurips2026">NeurIPS 2026</a></span></li>
@@ -100,8 +101,7 @@
                 <li><time datetime="2024-05">May 2024</time><span>Presented at <a href="#iclr2024">ICLR 2024</a> in <span class="nb">Vienna, Austria</span></span></li>
                 <li><time datetime="2024-01">Jan 2024</time><span>Two papers accepted to <a href="#iclr2024">ICLR 2024</a>, one as a spotlight</span></li>
                 <li><time datetime="2023-09">Sep 2023</time><span>Paper accepted to <a href="#neurips2023">NeurIPS 2023</a></span></li>
-              </ul>
-            </div>
+            </ul>
           </section>
         </aside>
       </div>
@@ -162,7 +162,7 @@
       </div>
     </article>
     <article class="pub" id="naacl2025">
-      <a class="thumb" href="assets/img/core-full.webp?v=8cbc166c" aria-label="Open the figure at full size"><img src="assets/img/crops/core.webp?v=be86df2f" width="1100" height="619" loading="lazy" alt="Part of Figure 1 of the paper: a multi-hop question answered wrongly when the supporting documents are in a misleading order."></a>
+      <a class="thumb" href="assets/img/core-full.webp?v=f82b4dc2" aria-label="Open the figure at full size"><img src="assets/img/core.webp?v=ca9d0289" width="1100" height="1007" loading="lazy" alt="Figure 1 of the paper: the same supporting documents lead to a wrong answer in a misleading order and to the right answer in the proper order."></a>
       <div>
         <div class="meta"><span class="venue">NAACL 2025</span><span class="tag">Findings</span></div>
         <h3><a href="https://aclanthology.org/2025.findings-naacl.360/">Unleashing <span class="nb">Multi-Hop</span> Reasoning Potential in Large Language Models through Repetition of Misordered Context</a></h3>
@@ -185,7 +185,7 @@
       </div>
     </article>
     <article class="pub" id="iclr2024">
-      <a class="thumb" href="assets/img/deyo-full.webp?v=6adfd319" aria-label="Open the figure at full size"><img src="assets/img/crops/deyo.webp?v=cc57fb26" width="782" height="440" loading="lazy" alt="An image and its patch-shuffled version, the object-destructive transformation used by the method."></a>
+      <a class="thumb" href="assets/img/deyo-full.webp?v=2c50f9b2" aria-label="Open the figure at full size"><img src="assets/img/crops/deyo.webp?v=54743f99" width="1100" height="813" loading="lazy" alt="Part of Figure 4 of the paper, the method overview: an image and its patch-shuffled version go through the model, and the method compares the two predictions."></a>
       <div>
         <div class="meta"><span class="venue">ICLR 2024</span><span class="tag honor">Spotlight</span></div>
         <h3><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/cd0665986c1e9c15f6569ac944bcf88a-Abstract-Conference.html">Entropy is not Enough for <span class="nb">Test-Time</span> Adaptation: From the Perspective of Disentangled Factors</a></h3>
