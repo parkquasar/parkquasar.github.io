@@ -137,7 +137,7 @@ a:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; border-
 }
 .hero-grid { /* name and links | News, exactly as tall as them; the introduction runs full width below */
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 21.5rem;
+  grid-template-columns: minmax(0, 1fr) 23rem;
   grid-template-areas: "head news" "bio bio";
   column-gap: 3rem;
   row-gap: 2.5rem;
@@ -388,6 +388,21 @@ a.thumb:hover { border-color: var(--cobalt); box-shadow: 0 6px 18px rgba(47, 95,
   transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 .links a:hover { border-color: var(--navy); background: var(--navy); color: #fff; }
+
+/* ---- Service and teaching ------------------------------------------ */
+.facts { padding-top: 0.5rem; padding-bottom: 0.5rem; box-shadow: var(--shadow-sm); }
+.facts .row { display: grid; grid-template-columns: 13rem minmax(0, 1fr); column-gap: 1.5rem; padding: 1rem 0; }
+.facts .row + .row { border-top: 1px solid var(--line); }
+.facts h3 { color: var(--navy); font-size: 1.0625rem; font-weight: 600; line-height: 1.55; }
+.facts li { display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem; color: var(--text); font-size: 1.0625rem; line-height: 1.55; }
+.facts li + li { margin-top: 0.375rem; }
+.facts .when { flex: none; color: var(--muted); font-size: 1rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 46rem) {
+  .facts .row { grid-template-columns: minmax(0, 1fr); row-gap: 0.25rem; }
+}
+@media (max-width: 30rem) {
+  .facts li { flex-direction: column; gap: 0; }
+}
 
 /* ---- Footer -------------------------------------------------------- */
 footer { margin-top: 4rem; border-top: 1px solid var(--line-strong); color: var(--muted); font-size: 1rem; }
