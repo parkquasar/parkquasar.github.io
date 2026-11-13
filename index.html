@@ -15,7 +15,7 @@
   <link rel="icon" href="favicon.svg?v=b9212a78" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/source-sans-3-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/style.css?v=5ca5dd31">
+  <link rel="stylesheet" href="assets/style.css?v=130d798e">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -56,8 +56,7 @@
   <section class="hero" id="about">
     <div class="wrap">
       <div class="hero-grid">
-        <div class="main">
-      <div class="hero-head">
+        <div class="hero-head">
           <div class="ident">
             <img class="avatar" src="assets/img/profile.webp?v=cf6a03bd" width="320" height="320" alt="Portrait of Junsung Park">
             <div>
@@ -76,19 +75,13 @@
             <li><a href="https://www.linkedin.com/in/junsung-park-a59752308/" rel="me"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></li>
           </ul>
 
-      </div>
-          <div class="bio">
-            <p>I am an AI researcher and a Ph.D. candidate in Electrical and Computer Engineering at Seoul National University, advised by <a class="nb" href="https://data.snu.ac.kr/">Prof. Sungroh Yoon</a>. I received my B.S. in Electrical and Computer Engineering from Seoul National University in 2022.</p>
-            <p>My research focuses on <strong><span class="nb">Vision-Language</span> Models (VLMs)</strong> and <strong>Large Language Models (LLMs)</strong>, in particular on whether a model&rsquo;s answer is grounded in the evidence it is given, such as an image or a retrieved document.</p>
-            <p>On the VLM side, I have studied how a model finds, among many images, the one a question refers to <span class="nb">(<a href="#neurips2026">NeurIPS 2026</a>)</span>, how <span class="nb">fine-tuning</span> on synthetic captions improves CLIP&rsquo;s understanding of negation <span class="nb">(<a href="#iccv2025">ICCV 2025</a>)</span>, and how <span class="nb">post-training</span> can personalize a model&rsquo;s responses <span class="nb">(<a href="#icml2026">ICML 2026</a>)</span>. On the LLM side, I have worked on <span class="nb">multi-hop</span> reasoning over misordered documents <span class="nb">(<a href="#naacl2025">NAACL 2025</a>)</span> and on using LLMs for interactive <span class="nb">text-to-image</span> retrieval <span class="nb">(<a href="#acl2024">ACL 2024</a>)</span>. My papers have appeared in NeurIPS, ICML, ICLR, ICCV, ACL, NAACL, and TPAMI.</p>
-            <p>I am currently interested in making VLMs reliable at understanding what they see. This includes visual and <span class="nb">multi-image</span> reasoning, grounding and hallucination, and benchmarks that measure these abilities. I am also interested in <span class="nb">post-training</span> methods such as reinforcement learning and <span class="nb">on-policy</span> distillation.</p>
-          </div>
         </div>
 
         <aside class="side">
           <section class="card news" aria-labelledby="h-news">
             <h2 id="h-news">News</h2>
-            <ul>
+            <div class="scroller">
+              <ul>
                 <li><time datetime="2026-12">Dec 2026</time><span>Presenting at <a href="#neurips2026">NeurIPS 2026</a> in <span class="nb">Sydney, Australia</span></span></li>
                 <li><time datetime="2026-10">Oct 2026</time><span>Paper accepted to <a href="#tpami2026">IEEE TPAMI</a></span></li>
                 <li><time datetime="2026-09">Sep 2026</time><span>Paper accepted to <a href="#neurips2026">NeurIPS 2026</a></span></li>
@@ -101,9 +94,17 @@
                 <li><time datetime="2024-05">May 2024</time><span>Presented at <a href="#iclr2024">ICLR 2024</a> in <span class="nb">Vienna, Austria</span></span></li>
                 <li><time datetime="2024-01">Jan 2024</time><span>Two papers accepted to <a href="#iclr2024">ICLR 2024</a>, one as a spotlight</span></li>
                 <li><time datetime="2023-09">Sep 2023</time><span>Paper accepted to <a href="#neurips2023">NeurIPS 2023</a></span></li>
-            </ul>
+              </ul>
+            </div>
           </section>
         </aside>
+
+        <div class="bio">
+          <p>I am an AI researcher and a Ph.D. candidate in Electrical and Computer Engineering at Seoul National University, advised by <a class="nb" href="https://data.snu.ac.kr/">Prof. Sungroh Yoon</a>. I received my B.S. in Electrical and Computer Engineering from Seoul National University in 2022.</p>
+          <p>My research focuses on <strong><span class="nb">Vision-Language</span> Models (VLMs)</strong> and <strong>Large Language Models (LLMs)</strong>, in particular on whether a model&rsquo;s answer is grounded in the evidence it is given, such as an image or a retrieved document.</p>
+          <p>On the VLM side, I have studied how a model finds, among many images, the one a question refers to <span class="nb">(<a href="#neurips2026">NeurIPS 2026</a>)</span>, how <span class="nb">fine-tuning</span> on synthetic captions improves CLIP&rsquo;s understanding of negation <span class="nb">(<a href="#iccv2025">ICCV 2025</a>)</span>, and how <span class="nb">post-training</span> can personalize a model&rsquo;s responses <span class="nb">(<a href="#icml2026">ICML 2026</a>)</span>. On the LLM side, I have worked on <span class="nb">multi-hop</span> reasoning over misordered documents <span class="nb">(<a href="#naacl2025">NAACL 2025</a>)</span> and on using LLMs for interactive <span class="nb">text-to-image</span> retrieval <span class="nb">(<a href="#acl2024">ACL 2024</a>)</span>. My papers have appeared in NeurIPS, ICML, ICLR, ICCV, ACL, NAACL, and TPAMI.</p>
+          <p>I am currently interested in making VLMs reliable at understanding what they see. This includes visual and <span class="nb">multi-image</span> reasoning, grounding and hallucination, and benchmarks that measure these abilities. I am also interested in <span class="nb">post-training</span> methods such as reinforcement learning and <span class="nb">on-policy</span> distillation.</p>
+        </div>
       </div>
     </div>
   </section>
