@@ -3,7 +3,8 @@
    Type: Source Serif 4 for prose (name, headings, introduction), Source Sans 3 for
    everything else. Weights 400 / 600.
    Colour: pale blue paper with white cards; navy for structure (bar, name, headings,
-   venue tags, buttons); cobalt for interaction; amber marks first-author papers.
+   venue tags, CV button); cobalt for interaction; amber marks first-author papers; the
+   logo tiles under the name keep their brands' colours.
    Spacing steps (rem): 0.25 0.5 0.75 1 1.5 2 3 4.
    Note: .wrap carries the side padding and is combined with other classes, so those
    classes must set padding-top / padding-bottom only, never the padding shorthand. */
@@ -146,6 +147,7 @@ a:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; border-
 .bio { grid-area: bio; }
 
 .ident { display: flex; align-items: center; gap: 1.75rem; }
+.ident > div { min-width: 0; } /* a long address wraps instead of widening the column */
 .avatar {
   flex: none;
   width: 7.5rem;
@@ -166,36 +168,56 @@ h1 {
 }
 .role { margin-top: 0.5rem; color: var(--text); font-size: 1.1875rem; line-height: 1.4; }
 .dept { color: var(--muted); font-size: 1.0625rem; line-height: 1.4; }
-.email { margin-top: 0.25rem; font-size: 1rem; line-height: 1.4; }
-.email a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: var(--navy-2);
-  text-decoration: underline;
-  text-decoration-color: #93a8d6;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+/* Logo links under the name: brand-coloured tiles, white marks. */
+.social { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.625rem; }
+.social a {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 8px;
+  color: #fff;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
-.email a:hover { color: var(--cobalt); text-decoration-color: var(--cobalt); }
-.email svg { width: 1rem; height: 1rem; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.social a:hover { transform: translateY(-1px); box-shadow: 0 6px 14px rgba(20, 40, 75, 0.24); }
+.social svg { width: 100%; height: 100%; fill: currentColor; }
+.social svg.ln { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.s-mail { background: var(--navy-2); }
+.s-scholar { background: #4285f4; }
+.s-github { background: #24292f; }
+.s-linkedin { background: #0a66c2; }
 
-.status {
-  display: inline-flex;
+/* Status and CV share one tinted bar: "open to internships, here is the CV". The status text
+   wraps if it ever gets long; the CV button keeps its size. */
+.status-bar {
+  display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: space-between;
+  gap: 0.75rem;
+  max-width: 22.5rem;
   margin-top: 1.5rem;
-  padding: 0.3125rem 0.875rem 0.3125rem 0.75rem;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  background: var(--tint); /* filled = label; outlined shapes on this page are links */
-  color: var(--navy);
-  font-size: 1rem;
+  padding: 0.3125rem 0.3125rem 0.3125rem 0.75rem;
+  border-radius: 12px;
+  background: var(--tint);
+}
+.status { display: flex; align-items: center; gap: 0.5rem; min-width: 0; color: var(--navy); font-size: 1rem; font-weight: 600; line-height: 1.5; }
+.status .dot { flex: none; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px rgba(43, 176, 122, 0.2); }
+.cv-chip {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.875rem 0.25rem 0.75rem;
+  border-radius: 8px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 0.9375rem;
   font-weight: 600;
   line-height: 1.5;
+  transition: background-color 0.15s ease;
 }
-.status .dot { flex: none; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px rgba(43, 176, 122, 0.2); }
+.cv-chip:hover { background: var(--cobalt); }
+.cv-chip svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
 .bio p {
   color: var(--text);
@@ -215,34 +237,6 @@ h1 {
   transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 .bio a:hover { color: var(--cobalt); text-decoration-color: var(--cobalt); }
-
-.contact { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
-.contact a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.875rem;
-  border: 1px solid var(--line-strong);
-  border-radius: 10px;
-  background: var(--surface);
-  color: var(--navy);
-  font-size: 1.0625rem;
-  font-weight: 600;
-  line-height: 1.4;
-  box-shadow: var(--shadow-sm);
-  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
-}
-.contact a:hover { border-color: var(--cobalt); color: var(--cobalt); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(47, 95, 214, 0.18); }
-.contact svg {
-  width: 1.125rem;
-  height: 1.125rem;
-  flex: none;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
 
 /* Side column: news. The list scrolls inside the card. A fade at the bottom shows there is
    more; where the browser supports scroll-driven animation, it clears at the end of the list
@@ -348,6 +342,8 @@ h1 {
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 .pub + .pub { margin-top: 1rem; }
+.pub > div:only-child { grid-column: 1 / -1; } /* a paper without a figure uses the full width */
+.pub:not(:has(> .thumb)) { grid-template-rows: auto; } /* and is only as tall as its text */
 .pub:hover { border-color: var(--line-strong); box-shadow: var(--shadow); }
 
 .thumb {
@@ -418,11 +414,8 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   h1 { font-size: 2.5rem; white-space: nowrap; } /* about 6px to spare beside the photo; Safari's metrics are slightly wider */
   .role { margin-top: 0.375rem; font-size: 1.0625rem; line-height: 1.35; }
   .dept { font-size: 1rem; line-height: 1.35; }
-  /* Four equal buttons, two by two. */
-  .contact { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem; margin-top: 1rem; }
-  .contact a { display: flex; justify-content: center; padding-left: 0.8125rem; padding-right: 0.8125rem; }
   .news li { grid-template-columns: 3.625rem minmax(0, 1fr); column-gap: 0.625rem; }
-  .bio { margin-top: -0.4375rem; } /* first line level with the top of the photo */
+  .bio { margin-top: 0.75rem; } /* first line on the name's baseline */
 }
 /* 1024 to 1120px: a little less gutter so the introduction keeps about 60 characters a line. */
 @media (min-width: 64rem) and (max-width: 70rem) {
@@ -457,10 +450,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .ident { gap: 1rem; }
   .avatar { width: 6rem; height: 6rem; }
   .role { font-size: 1.0625rem; }
-  .status { border-radius: 14px; font-size: 0.9375rem; }
-  /* Four equal buttons, two by two. */
-  .contact { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .contact a { display: flex; justify-content: center; padding: 0.4375rem 0.75rem; font-size: 1rem; }
+  .status { font-size: 0.9375rem; }
   .bio p { font-size: 1.125rem; text-wrap: wrap; } /* "pretty" leaves ragged last lines at this width */
   .block { padding-top: 3rem; }
   #publications { scroll-margin-top: calc(var(--nav-h) - 1.5rem); }
@@ -480,11 +470,13 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .ident { gap: 0.875rem; }
   .avatar { width: 5rem; height: 5rem; }
   h1 { font-size: 2.125rem; }
-  .contact a { gap: 0.375rem; padding-left: 0.625rem; padding-right: 0.625rem; font-size: 0.9375rem; }
 }
-@media (max-width: 22rem) { /* very narrow phones: labels only, so "Google Scholar" fits */
-  .contact svg { display: none; }
+@media (max-width: 22rem) { /* very narrow phones: the status stays on one line */
   h1 { font-size: 1.875rem; }
+  .status-bar { gap: 0.5rem; }
+  .status { gap: 0.375rem; font-size: 0.875rem; }
+  .cv-chip { padding-left: 0.75rem; padding-right: 0.75rem; }
+  .cv-chip svg { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
