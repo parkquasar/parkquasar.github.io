@@ -138,7 +138,7 @@ a:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; border-
   grid-template-areas: "head bio" "news bio";
   grid-template-rows: auto 1fr;
   column-gap: 3rem;
-  row-gap: 1.75rem;
+  row-gap: 1.5rem; /* the profile column keeps one 24px rhythm: logos, bar, News */
 }
 .hero-head { grid-area: head; }
 /* The News card is out of flow, so the introduction sets the height and the card ends level
@@ -187,13 +187,14 @@ h1 {
 .s-github { background: #24292f; }
 .s-linkedin { background: #0a66c2; }
 
-/* Status and CV share one tinted bar: "open to internships, here is the CV". The status text
-   wraps if it ever gets long; the CV button keeps its size. */
+/* Status and CV share one tinted bar that fits its content: "open to internships, CV".
+   The space before the dot equals the space before the CV button; the button sits 5px in
+   from the bar's edge. A longer status wraps inside the bar; the button keeps its size. */
 .status-bar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 0.75rem;
+  width: fit-content;
   max-width: 22.5rem;
   margin-top: 1.5rem;
   padding: 0.3125rem 0.3125rem 0.3125rem 0.75rem;
@@ -473,7 +474,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 }
 @media (max-width: 22rem) { /* very narrow phones: the status stays on one line */
   h1 { font-size: 1.875rem; }
-  .status-bar { gap: 0.5rem; }
+  .status-bar { gap: 0.625rem; padding-left: 0.625rem; }
   .status { gap: 0.375rem; font-size: 0.875rem; }
   .cv-chip { padding-left: 0.75rem; padding-right: 0.75rem; }
   .cv-chip svg { display: none; }
