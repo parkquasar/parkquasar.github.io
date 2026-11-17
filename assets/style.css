@@ -2,9 +2,8 @@
 
    Type: Source Serif 4 for prose (name, headings, introduction), Source Sans 3 for
    everything else. Weights 400 / 600.
-   Colour: pale blue paper with white cards; navy for structure (bar, name, headings,
-   venue tags, CV button); cobalt for interaction; amber marks first-author papers; the
-   logo tiles under the name keep their brands' colours.
+   Colour: white page, hairlines, ink text. Navy is the one accent (name, headings, links,
+   CV button); cobalt only on hover. No shadows, gradients or filled badges.
    Spacing steps (rem): 0.25 0.5 0.75 1 1.5 2 3 4.
    Note: .wrap carries the side padding and is combined with other classes, so those
    classes must set padding-top / padding-bottom only, never the padding shorthand. */
@@ -36,26 +35,20 @@
   --navy-2: #1d3d7c;
   --cobalt: #2f5fd6;
 
-  --paper: #f3f6fb;
-  --surface: #ffffff;
-  --tint: #e6edf9;
-  --tint-2: #d5e0f5;
-  --line: #dfe5ef;
-  --line-strong: #c5cfe0;
+  --page: #ffffff;
+  --soft: #f6f7f9;     /* hover and highlight wash */
+  --line: #e4e7ec;
+  --line-strong: #cdd2da;
 
-  --ink: #16202f;
-  --text: #2f3847;
-  --body: #4b5361;
-  --muted: #667080;
+  --ink: #161b24;
+  --text: #2f3542;
+  --body: #4a515e;
+  --muted: #687080;
 
-  --amber-ink: #7a4e05;
-  --amber-bg: #fbe9bf;
-  --green: #2bb07a;
+  --green: #2e9e6e;
 
   --serif: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
   --sans: "Source Sans 3", "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --shadow-sm: 0 1px 2px rgba(20, 40, 75, 0.06);
-  --shadow: 0 1px 2px rgba(20, 40, 75, 0.06), 0 12px 28px rgba(20, 40, 75, 0.08);
   color-scheme: light;
 }
 
@@ -67,7 +60,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: 
 
 body {
   margin: 0;
-  background: var(--paper);
+  background: var(--page);
   color: var(--body);
   font-family: var(--sans);
   font-size: 1.0625rem;
@@ -82,15 +75,14 @@ ul { list-style: none; }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 a:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; border-radius: 4px; }
-::selection { background: var(--tint-2); }
+::selection { background: #dbe4f5; }
 .nb { white-space: nowrap; }
-/* In-page jumps land just below the sticky top bar (3.5rem + 4px top rule + 1px bottom rule).
+/* In-page jumps land just below the sticky top bar (3.5rem + 1px bottom rule).
    Sections hide part of their own top padding, so nothing of the section above shows. */
-:root { --nav-h: calc(3.5rem + 5px); }
+:root { --nav-h: calc(3.5rem + 1px); }
 [id] { scroll-margin-top: calc(var(--nav-h) + 1.5rem); }
-.pub { scroll-margin-top: calc(var(--nav-h) + 1rem); } /* = the gap between cards */
+.pub { scroll-margin-top: calc(var(--nav-h) + 1rem); }
 #publications { scroll-margin-top: calc(var(--nav-h) - 2rem); }
-.pub:target { border-color: var(--cobalt); box-shadow: 0 0 0 3px rgba(47, 95, 214, 0.18), var(--shadow); }
 
 .wrap { max-width: 68rem; margin: 0 auto; padding-left: 1.5rem; padding-right: 1.5rem; }
 
@@ -99,50 +91,36 @@ a:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; border-
   position: sticky;
   top: 0;
   z-index: 20;
-  border-top: 4px solid var(--navy);
   border-bottom: 1px solid var(--line);
-  background: rgba(243, 246, 251, 0.88);
+  background: rgba(255, 255, 255, 0.92);
   -webkit-backdrop-filter: saturate(160%) blur(12px);
   backdrop-filter: saturate(160%) blur(12px);
 }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 3.5rem; }
 .brand { color: var(--navy); font-family: var(--serif); font-size: 1.25rem; font-weight: 600; letter-spacing: -0.005em; white-space: nowrap; }
-.nav nav { display: flex; align-items: center; gap: 0.25rem; }
+.nav nav { display: flex; align-items: center; gap: 0.25rem; margin-right: -0.75rem; } /* the last link's text on the content edge */
 .nav nav a {
   padding: 0.375rem 0.75rem;
-  border-radius: 8px;
-  color: var(--text);
+  color: var(--body);
   font-size: 1rem;
   font-weight: 600;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition: color 0.15s ease;
 }
-.nav nav a:hover { background: var(--tint); color: var(--navy); }
+.nav nav a:hover { color: var(--navy); }
 
 /* ---- Hero ---------------------------------------------------------- */
-.hero { position: relative; padding-top: 4rem; }
-.hero::before { /* soft blue wash behind the top of the page */
-  content: "";
-  position: absolute;
-  inset: 0 0 -4rem 0;
-  z-index: -1;
-  background:
-    radial-gradient(50rem 30rem at 86% 28%, rgba(47, 95, 214, 0.13), transparent 66%),
-    radial-gradient(36rem 22rem at 4% 30%, rgba(47, 95, 214, 0.05), transparent 62%);
-  -webkit-mask-image: linear-gradient(transparent, #000 5rem, #000 58%, transparent);
-  mask-image: linear-gradient(transparent, #000 5rem, #000 58%, transparent);
-  pointer-events: none;
-}
+.hero { padding-top: 4rem; }
 .hero-grid { /* profile column (photo, name, links, News) | introduction */
   display: grid;
   grid-template-columns: 21rem minmax(0, 1fr); /* as wide as the photo and name, so News lines up with the name */
   grid-template-areas: "head bio" "news bio";
   grid-template-rows: auto 1fr;
   column-gap: 4.5rem;
-  row-gap: 1.5rem; /* the profile column keeps one 24px rhythm: logos, bar, News */
+  row-gap: 1.5rem; /* the profile column keeps one 24px rhythm: logos, status row, News */
 }
 .hero-head { grid-area: head; }
-/* The News card is out of flow, so the introduction sets the height and the card ends level
-   with its last line. min-height keeps a usable card if the introduction gets shorter. */
+/* The News panel is out of flow, so the introduction sets the height and the panel ends level
+   with its last line. min-height keeps a usable panel if the introduction gets shorter. */
 .side { position: relative; grid-area: news; min-height: 14rem; }
 .bio { grid-area: bio; }
 
@@ -152,11 +130,9 @@ a:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; border-
   flex: none;
   width: 7.5rem;
   height: 7.5rem;
-  border: 3px solid #fff;
   border-radius: 50%;
-  background: var(--tint-2);
+  background: var(--soft);
   object-fit: cover;
-  box-shadow: 0 6px 20px rgba(20, 40, 75, 0.18);
 }
 h1 {
   color: var(--navy);
@@ -168,48 +144,43 @@ h1 {
 }
 .role { margin-top: 0.5rem; color: var(--text); font-size: 1.1875rem; line-height: 1.4; }
 .dept { color: var(--muted); font-size: 1.0625rem; line-height: 1.4; }
-/* Logo links under the name: brand-coloured tiles, white marks. */
-.social { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.625rem; }
+/* Logo links under the name: plain marks in one grey, ink on hover. */
+.social { display: flex; flex-wrap: wrap; gap: 0.375rem; margin-top: 0.625rem; margin-left: -0.25rem; }
 .social a {
   display: grid;
   place-items: center;
   width: 2rem;
   height: 2rem;
-  border-radius: 8px;
-  color: #fff;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  color: var(--muted);
+  transition: color 0.15s ease;
 }
-.social a:hover { transform: translateY(-1px); box-shadow: 0 6px 14px rgba(20, 40, 75, 0.24); }
+.social a:hover { color: var(--ink); }
 .social svg { width: 100%; height: 100%; fill: currentColor; }
-.social svg.ln { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.s-mail { background: var(--navy-2); }
-.s-scholar { background: #4285f4; }
-.s-github { background: #24292f; }
-.s-linkedin { background: #0a66c2; }
+.social svg.ln { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 
-/* Status label and CV button side by side, equal height. Filled tint = label, navy = button. */
+/* Status label and CV button side by side, equal height: a hairline label and a navy button. */
 .status-row { display: flex; flex-wrap: wrap; align-items: stretch; gap: 0.5rem; margin-top: 1.5rem; }
 .status {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   min-width: 0;
-  padding: 0.3125rem 0.875rem 0.3125rem 0.75rem;
-  border-radius: 10px;
-  background: var(--tint);
-  color: var(--navy);
-  font-size: 1rem;
+  padding: 0.25rem 0.75rem 0.25rem 0.6875rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 0.9375rem;
   font-weight: 600;
   line-height: 1.5;
 }
-.status .dot { flex: none; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px rgba(43, 176, 122, 0.2); }
+.status .dot { flex: none; width: 0.4375rem; height: 0.4375rem; border-radius: 50%; background: var(--green); }
 .cv-chip {
   display: inline-flex;
   flex: none;
   align-items: center;
   gap: 0.375rem;
-  padding: 0 0.875rem 0 0.75rem;
-  border-radius: 10px;
+  padding: 0 0.8125rem 0 0.6875rem;
+  border-radius: 6px;
   background: var(--navy);
   color: #fff;
   font-size: 0.9375rem;
@@ -217,7 +188,7 @@ h1 {
   line-height: 1.5;
   transition: background-color 0.15s ease;
 }
-.cv-chip:hover { background: var(--cobalt); }
+.cv-chip:hover { background: var(--navy-2); }
 .cv-chip svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
 .bio p {
@@ -229,17 +200,19 @@ h1 {
 }
 .bio p + p { margin-top: 1rem; }
 .bio strong { color: var(--ink); font-weight: 600; }
-.bio a {
+.bio a,
+.links a {
   color: var(--navy-2);
   text-decoration: underline;
-  text-decoration-color: #93a8d6;
+  text-decoration-color: #a9b6cf;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
   transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
-.bio a:hover { color: var(--cobalt); text-decoration-color: var(--cobalt); }
+.bio a:hover,
+.links a:hover { color: var(--cobalt); text-decoration-color: var(--cobalt); }
 
-/* Side column: news. The list scrolls inside the card. A fade at the bottom shows there is
+/* Side column: news. The list scrolls inside the panel. A fade at the bottom shows there is
    more; where the browser supports scroll-driven animation, it clears at the end of the list
    and a matching fade appears at the top once the list has moved. */
 .side .news { position: absolute; inset: 0; display: flex; flex-direction: column; padding-bottom: 0.25rem; }
@@ -261,8 +234,8 @@ h1 {
   height: 2rem;
   pointer-events: none;
 }
-.news .scroller::before { top: 0; margin-bottom: -2rem; background: linear-gradient(var(--surface), rgba(255, 255, 255, 0)); opacity: 0; }
-.news .scroller::after { bottom: 0; margin-top: -2rem; background: linear-gradient(rgba(255, 255, 255, 0), var(--surface) 85%); }
+.news .scroller::before { top: 0; margin-bottom: -2rem; background: linear-gradient(var(--page), rgba(255, 255, 255, 0)); opacity: 0; }
+.news .scroller::after { bottom: 0; margin-top: -2rem; background: linear-gradient(rgba(255, 255, 255, 0), var(--page) 85%); }
 .news .scroller ul { padding-bottom: 1.5rem; } /* the last item can scroll clear of the fade */
 .news a { scroll-margin-block: 2rem; } /* keyboard focus stops short of the fades */
 @supports (animation-timeline: scroll()) {
@@ -272,11 +245,10 @@ h1 {
 @keyframes news-fade-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes news-fade-out { from { opacity: 1; } to { opacity: 0; } }
 .card {
-  padding: 1.5rem;
+  padding: 1.25rem;
   border: 1px solid var(--line);
-  border-radius: 16px;
-  background: var(--surface);
-  box-shadow: var(--shadow);
+  border-radius: 8px;
+  background: var(--page);
 }
 .card h2 {
   color: var(--navy);
@@ -287,8 +259,8 @@ h1 {
 }
 .news li {
   display: grid;
-  grid-template-columns: 4rem minmax(0, 1fr);
-  column-gap: 0.75rem;
+  grid-template-columns: 3.5rem minmax(0, 1fr); /* "Paper accepted to NeurIPS 2026" stays on one line */
+  column-gap: 0.5rem;
   align-items: baseline;
   padding: 0.5rem 0;
   color: var(--text);
@@ -318,7 +290,7 @@ h1 {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin: 3rem 0 1rem;
+  margin: 3rem 0 0.25rem;
   color: var(--navy);
   font-family: var(--serif);
   font-size: 1.375rem;
@@ -329,48 +301,46 @@ h1 {
 .year::after { content: ""; flex: 1; height: 1px; background: var(--line-strong); }
 .sec + .year { margin-top: 0; }
 
+/* Each paper is a row: figure | text, with the links under the text. Rows are divided by
+   hairlines. The columns are the same as at the top of the page, so the figures line up with
+   News and the text with the introduction. All figures are 3:2 (assets/img/thumbs). */
 .pub {
   display: grid;
-  grid-template-columns: 24rem minmax(0, 1fr);
-  grid-template-rows: minmax(15.75rem, auto); /* every card at least as tall as the longest text block */
-  gap: 1.5rem;
-  align-items: stretch;
-  padding: 1.5rem;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  background: var(--surface);
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  grid-template-columns: 21rem minmax(0, 1fr);
+  grid-template-areas: "fig text" "fig links";
+  grid-template-rows: auto 1fr;
+  column-gap: 4.5rem;
+  align-items: start;
+  padding: 1.5rem 0;
 }
-.pub + .pub { margin-top: 1rem; }
-.pub > div:only-child { grid-column: 1 / -1; } /* a paper without a figure uses the full width */
-.pub:not(:has(> .thumb)) { grid-template-rows: auto; } /* and is only as tall as its text */
-.pub:hover { border-color: var(--line-strong); box-shadow: var(--shadow); }
+.pub + .pub { border-top: 1px solid var(--line); }
+.pub > .thumb { grid-area: fig; }
+.pub > .text { grid-area: text; }
+.pub > .links { grid-area: links; }
+.pub:not(:has(> .thumb)) { grid-template-columns: minmax(0, 1fr); grid-template-areas: "text" "links"; } /* a paper without a figure */
+.pub:target { border-radius: 8px; background: var(--soft); box-shadow: 0 0 0 0.75rem var(--soft); }
 
 .thumb {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
-  border: 1px solid transparent;
-  border-radius: 10px;
-  background: var(--paper);
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
   cursor: zoom-in;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition: border-color 0.15s ease;
 }
-.thumb img { width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 4px; object-fit: contain; }
-a.thumb:hover { border-color: var(--cobalt); box-shadow: 0 6px 18px rgba(47, 95, 214, 0.16); }
+.thumb img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+a.thumb:hover { border-color: var(--navy-2); }
 
-.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.375rem; }
-.venue,
-.tag { padding: 0.125rem 0.625rem; border-radius: 6px; font-size: 0.875rem; font-weight: 600; line-height: 1.5; letter-spacing: 0.01em; }
-.venue { background: var(--navy); color: #fff; }
-.tag { background: #e9edf3; color: #465064; }
-.tag.first { background: var(--amber-bg); color: var(--amber-ink); }
-.tag.honor { background: var(--tint-2); color: var(--navy-2); }
+/* Venue, then any note (first author, oral, findings), as plain text divided by dots. */
+.meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.5rem; font-size: 0.9375rem; font-weight: 600; line-height: 1.5; }
+.venue { color: var(--navy-2); }
+.tag { color: var(--muted); }
+.tag::before { content: "\00b7"; margin-right: 0.5rem; color: var(--line-strong); }
+.tag.first { color: var(--ink); }
 
 .pub h4 {
-  margin-top: 0.5rem;
+  margin-top: 0.375rem;
   color: var(--ink);
   font-size: 1.3125rem;
   font-weight: 600;
@@ -384,30 +354,12 @@ a.thumb:hover { border-color: var(--cobalt); box-shadow: 0 6px 18px rgba(47, 95,
 .authors .me { color: var(--ink); font-weight: 600; white-space: nowrap; }
 .desc { margin-top: 0.5rem; color: var(--text); font-size: 1.0625rem; line-height: 1.55; text-wrap: pretty; }
 
-.links { display: flex; flex-wrap: wrap; gap: 0.375rem; margin-top: 1rem; }
-.links a {
-  display: inline-block;
-  padding: 0.25rem 0.8125rem;
-  border: 1px solid var(--line-strong);
-  border-radius: 999px;
-  background: #fff;
-  color: var(--navy);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  line-height: 1.5;
-  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
-}
-.links a:hover { border-color: var(--navy); background: var(--navy); color: #fff; }
+.links { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; margin-top: 0.75rem; font-size: 1rem; font-weight: 600; line-height: 1.5; }
 
 /* ---- Footer -------------------------------------------------------- */
-footer { margin-top: 4rem; border-top: 1px solid var(--line-strong); color: var(--muted); font-size: 1rem; }
+footer { margin-top: 4rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 1rem; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.25rem 1.5rem; padding-top: 1.5rem; padding-bottom: 3rem; }
 
-/* ---- Below 70rem: narrower figures; figure boxes keep their 16:9 size ---- */
-@media (max-width: 70rem) {
-  .pub { grid-template-columns: 20rem minmax(0, 1fr); grid-template-rows: auto; }
-  .thumb { align-self: start; }
-}
 /* ---- From 768px: a compact name block in the profile column -------- */
 @media (min-width: 48rem) {
   .ident { gap: 1.125rem; }
@@ -415,27 +367,26 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   h1 { white-space: nowrap; } /* about 5px to spare beside the photo; Safari's metrics are slightly wider */
   .role { margin-top: 0.375rem; font-size: 1.0625rem; line-height: 1.35; }
   .dept { font-size: 1rem; line-height: 1.35; }
-  .side .card { padding: 1.25rem; }
-  .news li { grid-template-columns: 3.5rem minmax(0, 1fr); column-gap: 0.5rem; } /* "Paper accepted to NeurIPS 2026" stays on one line */
   .bio { margin-top: 0.625rem; } /* first line on the name's baseline */
 }
 /* 768 to 1023px (a half-width browser window): the same layout, a size smaller. */
 @media (min-width: 48rem) and (max-width: 63.98rem) {
   .hero { padding-top: 3rem; }
-  .hero-grid { grid-template-columns: 19.5rem minmax(0, 1fr); column-gap: 2rem; }
+  .hero-grid,
+  .pub { grid-template-columns: 19.5rem minmax(0, 1fr); column-gap: 2rem; }
   .ident { gap: 0.875rem; }
   .avatar { width: 5.75rem; height: 5.75rem; }
   h1 { font-size: 2.125rem; }
   .role { font-size: 1rem; }
   .dept { font-size: 0.9375rem; }
-  .status { font-size: 0.9375rem; }
   .bio p { font-size: 1.0625rem; }
   .bio { margin-top: 0.5625rem; } /* first line on the name's baseline */
   .news li { grid-template-columns: 3.375rem minmax(0, 1fr); column-gap: 0.5rem; font-size: 0.9375rem; }
 }
 /* 1024 to 1120px: a little less gutter so the introduction keeps about 60 characters a line. */
 @media (min-width: 64rem) and (max-width: 70rem) {
-  .hero-grid { column-gap: 4rem; }
+  .hero-grid,
+  .pub { column-gap: 4rem; }
 }
 
 /* ---- Below 768px: News moves under the introduction, in full -------- */
@@ -447,34 +398,38 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .news .scroller::before,
   .news .scroller::after { display: none; }
   .news .scroller ul { padding-bottom: 0; }
+  .bio { max-width: 38.75rem; } /* about 75 characters a line; as wide as the logo and status row */
 }
-
-@media (max-width: 62rem) {
-  .pub { grid-template-columns: 16rem minmax(0, 1fr); grid-template-rows: auto; gap: 1.25rem; padding: 1.25rem; align-items: start; }
+/* 640 to 767px: figure beside the title and authors; the summary and links run full width. */
+@media (min-width: 40rem) and (max-width: 47.98rem) {
+  .pub { grid-template-columns: 15rem minmax(0, 1fr); grid-template-areas: "fig head" "desc desc" "links links"; grid-template-rows: auto; align-items: center; }
+  .pub > .text { display: contents; }
+  .pub .head { grid-area: head; }
+  .pub .desc { grid-area: desc; margin-top: 1rem; }
+  .pub:not(:has(> .thumb)) { grid-template-areas: "head" "desc" "links"; }
+}
+/* Below 640px: figure above the text. */
+@media (max-width: 39.98rem) {
+  .pub { grid-template-columns: minmax(0, 1fr); grid-template-areas: "fig" "text" "links"; grid-template-rows: auto; }
+  .pub > .thumb { margin-bottom: 1rem; }
 }
 
 /* ---- Narrow -------------------------------------------------------- */
 @media (max-width: 46rem) {
   .wrap { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .nav nav { margin-right: -0.5rem; }
   .nav nav a { padding: 0.375rem 0.5rem; }
   .nav nav a.opt { display: none; }
   .hero { padding-top: 2rem; }
   .ident { gap: 1rem; }
   .avatar { width: 6rem; height: 6rem; }
   .role { font-size: 1.0625rem; }
-  .status { font-size: 0.9375rem; }
+  .dept { font-size: 1rem; }
   .bio p { font-size: 1.0625rem; text-wrap: wrap; } /* "pretty" leaves ragged last lines at this width */
   .block { padding-top: 3rem; }
   #publications { scroll-margin-top: calc(var(--nav-h) - 1.5rem); }
   .sec h2 { font-size: 1.75rem; }
-  .pub { grid-template-columns: 12.5rem minmax(0, 1fr); gap: 1rem; padding: 1rem; }
   .pub h4 { font-size: 1.1875rem; }
-}
-
-
-/* ---- Phones: figure above the text --------------------------------- */
-@media (max-width: 38rem) {
-  .pub { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 30rem) { /* the photo stays beside the name, a little smaller */
   .ident { gap: 0.875rem; }
@@ -483,7 +438,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 }
 @media (max-width: 22rem) { /* very narrow phones: the status stays on one line */
   h1 { font-size: 1.875rem; }
-  .status { gap: 0.375rem; padding-left: 0.625rem; padding-right: 0.75rem; font-size: 0.875rem; }
+  .status { gap: 0.375rem; padding-left: 0.625rem; padding-right: 0.625rem; font-size: 0.875rem; }
   .cv-chip { padding-left: 0.75rem; padding-right: 0.75rem; }
   .cv-chip svg { display: none; }
 }
@@ -501,7 +456,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .social { grid-column: 2; grid-row: 4; }
   .status-row { grid-column: 2; grid-row: 5; margin-top: 0.625rem; }
 }
-/* From 680px the logos and the status share one row (it needs about 470px beside the photo). */
+/* From 680px the logos and the status share one row. */
 @media (min-width: 42.5rem) and (max-width: 47.98rem) {
   .hero-head { grid-template-columns: auto auto minmax(0, 1fr); }
   .avatar { grid-row: 1 / span 4; }
@@ -515,10 +470,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 }
 
 @media print {
-  body { background: #fff; }
   .nav { position: static; }
-  .hero::before { display: none; }
-  .pub, .card { box-shadow: none; }
   .pub { break-inside: avoid; }
   .side .news { position: static; }
   .news .scroller { overflow: visible; }
