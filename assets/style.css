@@ -1,12 +1,14 @@
 /* Junsung Park, personal page. Plain CSS, no build step.
 
-   Type: Source Serif 4 for prose (name, headings, introduction), Source Sans 3 for
-   everything else. Weights 400 / 600.
-   Colour: white page, hairlines, ink text. Navy is the one accent (name, headings, links,
-   CV button); cobalt only on hover. No shadows, gradients or filled badges.
-   Spacing steps (rem): 0.25 0.5 0.75 1 1.5 2 3 4.
-   Note: .wrap carries the side padding and is combined with other classes, so those
-   classes must set padding-top / padding-bottom only, never the padding shorthand. */
+   Layout: from 1120px the profile is a sticky column at the left and everything else is one
+   column at the right (introduction, News, Publications). Below that the profile is a header
+   above the same column.
+   Type: Source Serif 4 for the name, section labels and introduction; Source Sans 3 for the rest.
+   Colour: ink and greys on white, with navy as the one accent (name, labels, links, CV button).
+   Weight: 600 only for the name, section labels, paper titles, my name in author lists and the
+   CV button. No boxes, rules, shadows or badges apart from the CV button and the figure frames.
+   Note: .wrap carries the side padding and is combined with other classes, so those classes
+   must set padding-top / padding-bottom only, never the padding shorthand. */
 
 @font-face {
   font-family: "Source Sans 3";
@@ -32,20 +34,16 @@
 
 :root {
   --navy: #14284b;
-  --navy-2: #1d3d7c;
-  --cobalt: #2f5fd6;
+  --link: #1d3d7c;
+  --link-line: #b9c4d8;
 
   --page: #ffffff;
-  --soft: #f6f7f9;     /* hover and highlight wash */
+  --soft: #f5f6f8;     /* highlight wash and image placeholder */
   --line: #e4e7ec;
-  --line-strong: #cdd2da;
 
   --ink: #161b24;
   --text: #2f3542;
-  --body: #4a515e;
   --muted: #687080;
-
-  --green: #2e9e6e;
 
   --serif: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
   --sans: "Source Sans 3", "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -61,7 +59,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: 
 body {
   margin: 0;
   background: var(--page);
-  color: var(--body);
+  color: var(--text);
   font-family: var(--sans);
   font-size: 1.0625rem;
   line-height: 1.6;
@@ -74,394 +72,216 @@ h1, h2, h3, h4, p, ul { margin: 0; padding: 0; }
 ul { list-style: none; }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
-a:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; border-radius: 4px; }
-::selection { background: #dbe4f5; }
+a:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; border-radius: 3px; }
+::selection { background: #dfe5f0; }
 .nb { white-space: nowrap; }
-/* In-page jumps land just below the sticky top bar (3.5rem + 1px bottom rule).
-   Sections hide part of their own top padding, so nothing of the section above shows. */
-:root { --nav-h: calc(3.5rem + 1px); }
-[id] { scroll-margin-top: calc(var(--nav-h) + 1.5rem); }
-.pub { scroll-margin-top: calc(var(--nav-h) + 1rem); }
-#publications { scroll-margin-top: calc(var(--nav-h) - 2rem); }
+[id] { scroll-margin-top: 2rem; }
 
-.wrap { max-width: 68rem; margin: 0 auto; padding-left: 1.5rem; padding-right: 1.5rem; }
+/* 67rem: the 15rem profile column, 5rem gap and 44rem content column, plus the side padding. */
+.wrap { max-width: 67rem; margin: 0 auto; padding-left: 1.5rem; padding-right: 1.5rem; }
 
-/* ---- Top bar ------------------------------------------------------- */
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  border-bottom: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.92);
-  -webkit-backdrop-filter: saturate(160%) blur(12px);
-  backdrop-filter: saturate(160%) blur(12px);
-}
-.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 3.5rem; }
-.brand { color: var(--navy); font-family: var(--serif); font-size: 1.25rem; font-weight: 600; letter-spacing: -0.005em; white-space: nowrap; }
-.nav nav { display: flex; align-items: center; gap: 0.25rem; margin-right: -0.75rem; } /* the last link's text on the content edge */
-.nav nav a {
-  padding: 0.375rem 0.75rem;
-  color: var(--body);
-  font-size: 1rem;
-  font-weight: 600;
-  transition: color 0.15s ease;
-}
-.nav nav a:hover { color: var(--navy); }
-
-/* ---- Hero ---------------------------------------------------------- */
-.hero { padding-top: 4rem; }
-.hero-grid { /* profile column (photo, name, links, News) | introduction */
-  display: grid;
-  grid-template-columns: 21rem minmax(0, 1fr); /* as wide as the photo and name, so News lines up with the name */
-  grid-template-areas: "head bio" "news bio";
-  grid-template-rows: auto 1fr;
-  column-gap: 4.5rem;
-  row-gap: 1.5rem; /* the profile column keeps one 24px rhythm: logos, status row, News */
-}
-.hero-head { grid-area: head; }
-/* The News panel is out of flow, so the introduction sets the height and the panel ends level
-   with its last line. min-height keeps a usable panel if the introduction gets shorter. */
-.side { position: relative; grid-area: news; min-height: 14rem; }
-.bio { grid-area: bio; }
-
-.ident { display: flex; align-items: center; gap: 1.75rem; }
-.ident > div { min-width: 0; } /* a long address wraps instead of widening the column */
-.avatar {
-  flex: none;
-  width: 7.5rem;
-  height: 7.5rem;
-  border-radius: 50%;
-  background: var(--soft);
-  object-fit: cover;
-}
-h1 {
-  color: var(--navy);
-  font-family: var(--serif);
-  font-size: 2.25rem; /* twice the introduction's size */
-  font-weight: 600;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-}
-.role { margin-top: 0.5rem; color: var(--text); font-size: 1.1875rem; line-height: 1.4; }
-.dept { color: var(--muted); font-size: 1.0625rem; line-height: 1.4; }
-/* Logo links under the name: plain marks in one grey, ink on hover. */
-.social { display: flex; flex-wrap: wrap; gap: 0.375rem; margin-top: 0.625rem; margin-left: -0.25rem; }
-.social a {
-  display: grid;
-  place-items: center;
-  width: 2rem;
-  height: 2rem;
-  color: var(--muted);
-  transition: color 0.15s ease;
-}
-.social a:hover { color: var(--ink); }
-.social svg { width: 100%; height: 100%; fill: currentColor; }
-.social svg.ln { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-
-/* Status label and CV button side by side, equal height: a hairline label and a navy button. */
-.status-row { display: flex; flex-wrap: wrap; align-items: stretch; gap: 0.5rem; margin-top: 1.5rem; }
-.status {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  min-width: 0;
-  padding: 0.25rem 0.75rem 0.25rem 0.6875rem;
-  border: 1px solid var(--line-strong);
-  border-radius: 6px;
-  color: var(--text);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  line-height: 1.5;
-}
-.status .dot { flex: none; width: 0.4375rem; height: 0.4375rem; border-radius: 50%; background: var(--green); }
-.cv-chip {
-  display: inline-flex;
-  flex: none;
-  align-items: center;
-  gap: 0.375rem;
-  padding: 0 0.8125rem 0 0.6875rem;
-  border-radius: 6px;
-  background: var(--navy);
-  color: #fff;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  line-height: 1.5;
-  transition: background-color 0.15s ease;
-}
-.cv-chip:hover { background: var(--navy-2); }
-.cv-chip svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-
-.bio p {
-  color: var(--text);
-  font-family: var(--serif);
-  font-size: 1.125rem;
-  line-height: 1.7;
-  text-wrap: pretty;
-}
-.bio p + p { margin-top: 1rem; }
-.bio strong { color: var(--ink); font-weight: 600; }
+/* Links in running text: navy with a light underline that darkens on hover. */
 .bio a,
+.news a,
 .links a {
-  color: var(--navy-2);
+  color: var(--link);
   text-decoration: underline;
-  text-decoration-color: #a9b6cf;
+  text-decoration-color: var(--link-line);
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
-  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+  transition: text-decoration-color 0.15s ease;
 }
 .bio a:hover,
-.links a:hover { color: var(--cobalt); text-decoration-color: var(--cobalt); }
+.news a:hover,
+.links a:hover { text-decoration-color: currentColor; }
 
-/* Side column: news. The list scrolls inside the panel. A fade at the bottom shows there is
-   more; where the browser supports scroll-driven animation, it clears at the end of the list
-   and a matching fade appears at the top once the list has moved. */
-.side .news { position: absolute; inset: 0; display: flex; flex-direction: column; padding-bottom: 0.25rem; }
-.news .scroller {
-  position: relative;
-  flex: 1;
-  min-height: 0;
-  margin-top: 0.5rem;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--line-strong) transparent;
-}
-.news .scroller::before,
-.news .scroller::after {
-  content: "";
-  position: sticky;
-  z-index: 1;
-  display: block;
-  height: 2rem;
-  pointer-events: none;
-}
-.news .scroller::before { top: 0; margin-bottom: -2rem; background: linear-gradient(var(--page), rgba(255, 255, 255, 0)); opacity: 0; }
-.news .scroller::after { bottom: 0; margin-top: -2rem; background: linear-gradient(rgba(255, 255, 255, 0), var(--page) 85%); }
-.news .scroller ul { padding-bottom: 1.5rem; } /* the last item can scroll clear of the fade */
-.news a { scroll-margin-block: 2rem; } /* keyboard focus stops short of the fades */
-@supports (animation-timeline: scroll()) {
-  .news .scroller::before { animation: news-fade-in linear both; animation-timeline: scroll(nearest); animation-range: 0 1.5rem; }
-  .news .scroller::after { animation: news-fade-out linear both; animation-timeline: scroll(nearest); animation-range: calc(100% - 1.5rem) 100%; }
-}
-@keyframes news-fade-in { from { opacity: 0; } to { opacity: 1; } }
-@keyframes news-fade-out { from { opacity: 1; } to { opacity: 0; } }
-.card {
-  padding: 1.25rem;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--page);
-}
-.card h2 {
-  color: var(--navy);
-  font-family: var(--serif);
-  font-size: 1.375rem;
-  font-weight: 600;
-  line-height: 1.3;
-}
-.news li {
-  display: grid;
-  grid-template-columns: 3.5rem minmax(0, 1fr); /* "Paper accepted to NeurIPS 2026" stays on one line */
-  column-gap: 0.5rem;
-  align-items: baseline;
-  padding: 0.5rem 0;
-  color: var(--text);
-  font-size: 1rem;
-  line-height: 1.45;
-}
-.news li + li { border-top: 1px solid var(--line); }
-.news time { color: var(--muted); font-size: 0.875rem; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.news a { color: var(--navy); font-weight: 600; transition: color 0.15s ease; }
-.news li > span { overflow-wrap: anywhere; }
-.news a:hover { color: var(--cobalt); text-decoration: underline; text-underline-offset: 3px; }
-
-/* ---- Publications -------------------------------------------------- */
-.block { padding-top: 4rem; }
-.sec { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.25rem 1.5rem; margin-bottom: 1.5rem; }
-.sec h2 {
+/* ---- Profile ------------------------------------------------------- */
+.avatar { width: 8.5rem; height: 8.5rem; border-radius: 50%; background: var(--soft); object-fit: cover; }
+h1 {
   color: var(--navy);
   font-family: var(--serif);
   font-size: 2rem;
   font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.012em;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
 }
-.legend { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 1.5rem; color: var(--muted); font-size: 1rem; }
+.role { margin-top: 0.5rem; font-size: 1.0625rem; line-height: 1.4; }
+.dept { color: var(--muted); font-size: 1.0625rem; line-height: 1.4; }
 
-.year {
-  display: flex;
+/* The CV button first, then the profile marks, all on one centre line. Each mark's viewBox is
+   cropped to its drawing, so the sizes below are drawn sizes: 20px tall (the envelope 20 x 16,
+   LinkedIn 17, which reads as large as the round marks). With equal padding on every link the
+   marks are 16px apart, and 18px from the button. */
+.reach { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
+.cv {
+  display: inline-flex;
   align-items: center;
-  gap: 1rem;
-  margin: 3rem 0 0.25rem;
+  height: 2rem;
+  padding: 0 0.875rem;
+  border-radius: 4px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: background-color 0.15s ease;
+}
+.cv:hover { background: var(--link); }
+.social { display: flex; align-items: center; gap: 0.25rem; }
+.social a { display: flex; align-items: center; height: 2rem; padding: 0 0.375rem; color: var(--muted); transition: color 0.15s ease; }
+.social a:hover { color: var(--navy); }
+.social svg { display: block; fill: currentColor; }
+.s-mail svg { width: 1.25rem; height: 1rem; }
+.s-scholar svg { width: 1.1163rem; height: 1.25rem; }
+.s-github svg { width: 1.2815rem; height: 1.25rem; }
+.s-linkedin svg { width: 1.0625rem; height: 1.0625rem; }
+
+.status { display: flex; align-items: center; gap: 0.5rem; font-size: 1rem; line-height: 1.5; }
+.status::before { content: ""; flex: none; width: 0.4375rem; height: 0.4375rem; border-radius: 50%; background: var(--navy); }
+
+/* ---- Sections ------------------------------------------------------ */
+.sect + .sect { margin-top: 4rem; }
+.label {
+  margin-bottom: 1rem;
   color: var(--navy);
   font-family: var(--serif);
   font-size: 1.375rem;
   font-weight: 600;
-  font-variant-numeric: tabular-nums;
   line-height: 1.3;
 }
-.year::after { content: ""; flex: 1; height: 1px; background: var(--line-strong); }
-.sec + .year { margin-top: 0; }
+/* The introduction comes straight after the name, so its label is for screen readers only. */
+.intro > .label { position: absolute; width: 1px; height: 1px; margin: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
-/* Each paper is a row: figure | text, with the links under the text. Rows are divided by
-   hairlines. The columns are the same as at the top of the page, so the figures line up with
-   News and the text with the introduction. All figures are 3:2 (assets/img/thumbs). */
+.bio { max-width: 38rem; } /* about 70 characters a line */
+.bio p { font-family: var(--serif); font-size: 1.125rem; line-height: 1.7; text-wrap: pretty; }
+.bio p + p { margin-top: 1rem; }
+
+.news li {
+  display: grid;
+  grid-template-columns: 4.25rem minmax(0, 1fr);
+  column-gap: 1rem;
+  align-items: baseline;
+  padding: 0.25rem 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.news time { color: var(--muted); font-size: 0.9375rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* ---- Publications -------------------------------------------------- */
+.year {
+  margin: 2.5rem 0 0.25rem;
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+.body > .year:first-child { margin-top: 0.5rem; }
+.legend { margin-top: 1.5rem; color: var(--muted); font-size: 0.9375rem; }
+
+/* Each paper is a row: figure | text, with the links under the text. All figures are 3:2
+   (assets/img/thumbs); they open the full-size figure. */
 .pub {
   display: grid;
-  grid-template-columns: 21rem minmax(0, 1fr);
+  grid-template-columns: 14rem minmax(0, 1fr);
   grid-template-areas: "fig text" "fig links";
   grid-template-rows: auto 1fr;
-  column-gap: 4.5rem;
+  column-gap: 1.75rem;
   align-items: start;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
 }
-.pub + .pub { border-top: 1px solid var(--line); }
 .pub > .thumb { grid-area: fig; }
 .pub > .text { grid-area: text; }
 .pub > .links { grid-area: links; }
 .pub:not(:has(> .thumb)) { grid-template-columns: minmax(0, 1fr); grid-template-areas: "text" "links"; } /* a paper without a figure */
-.pub:target { border-radius: 8px; background: var(--soft); box-shadow: 0 0 0 0.75rem var(--soft); }
+/* A paper reached from a link in the introduction or News gets a light wash: the one deliberate box. */
+.pub:target { border-radius: 6px; background: var(--soft); box-shadow: 0 0 0 0.75rem var(--soft); }
 
-.thumb {
-  display: block;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: #fff;
-  cursor: zoom-in;
-  transition: border-color 0.15s ease;
-}
+.thumb { display: block; overflow: hidden; border: 1px solid var(--line); border-radius: 4px; background: #fff; cursor: zoom-in; transition: border-color 0.15s ease; }
 .thumb img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
-a.thumb:hover { border-color: var(--navy-2); }
+a.thumb:hover { border-color: var(--link-line); }
 
 /* Venue, then any note (first author, oral, findings), as plain text divided by dots. */
-.meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.5rem; font-size: 0.9375rem; font-weight: 600; line-height: 1.5; }
-.venue { color: var(--navy-2); }
-.tag { color: var(--muted); }
-.tag::before { content: "\00b7"; margin-right: 0.5rem; color: var(--line-strong); }
-.tag.first { color: var(--ink); }
+.meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.5rem; color: var(--muted); font-size: 0.9375rem; line-height: 1.5; }
+.venue { color: var(--text); }
+.tag::before { content: "\00b7"; content: "\00b7" / ""; margin-right: 0.5rem; } /* the dot is not read aloud */
 
-.pub h4 {
-  margin-top: 0.375rem;
-  color: var(--ink);
-  font-size: 1.3125rem;
-  font-weight: 600;
-  line-height: 1.3;
-  letter-spacing: -0.005em;
-  text-wrap: balance;
-}
+.pub h4 { margin-top: 0.25rem; color: var(--ink); font-size: 1.1875rem; font-weight: 600; line-height: 1.35; text-wrap: balance; }
 .pub h4 a { transition: color 0.15s ease; }
-.pub h4 a:hover { color: var(--cobalt); }
-.authors { margin-top: 0.375rem; color: var(--muted); font-size: 1rem; line-height: 1.5; text-wrap: pretty; }
+.pub h4 a:hover { color: var(--link); }
+.authors { margin-top: 0.375rem; color: var(--muted); font-size: 0.9375rem; line-height: 1.5; text-wrap: pretty; }
 .authors .me { color: var(--ink); font-weight: 600; white-space: nowrap; }
-.desc { margin-top: 0.5rem; color: var(--text); font-size: 1.0625rem; line-height: 1.55; text-wrap: pretty; }
-
-.links { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; margin-top: 0.75rem; font-size: 1rem; font-weight: 600; line-height: 1.5; }
+.desc { margin-top: 0.5rem; font-size: 1rem; line-height: 1.55; text-wrap: pretty; }
+.links { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; margin-top: 0.5rem; font-size: 0.9375rem; line-height: 1.5; }
 
 /* ---- Footer -------------------------------------------------------- */
-footer { margin-top: 4rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 1rem; }
-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.25rem 1.5rem; padding-top: 1.5rem; padding-bottom: 3rem; }
+footer { color: var(--muted); font-size: 0.9375rem; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.25rem 1.5rem; padding-top: 4rem; padding-bottom: 3rem; }
 
-/* ---- From 768px: a compact name block in the profile column -------- */
-@media (min-width: 48rem) {
-  .ident { gap: 1.125rem; }
-  .avatar { width: 7rem; height: 7rem; }
-  h1 { white-space: nowrap; } /* about 5px to spare beside the photo; Safari's metrics are slightly wider */
-  .role { margin-top: 0.375rem; font-size: 1.0625rem; line-height: 1.35; }
-  .dept { font-size: 1rem; line-height: 1.35; }
-  .bio { margin-top: 0.625rem; } /* first line on the name's baseline */
-}
-/* 768 to 1023px (a half-width browser window): the same layout, a size smaller. */
-@media (min-width: 48rem) and (max-width: 63.98rem) {
-  .hero { padding-top: 3rem; }
-  .hero-grid,
-  .pub { grid-template-columns: 19.5rem minmax(0, 1fr); column-gap: 2rem; }
-  .ident { gap: 0.875rem; }
-  .avatar { width: 5.75rem; height: 5.75rem; }
-  h1 { font-size: 2.125rem; }
-  .role { font-size: 1rem; }
-  .dept { font-size: 0.9375rem; }
-  .bio p { font-size: 1.0625rem; }
-  .bio { margin-top: 0.5625rem; } /* first line on the name's baseline */
-  .news li { grid-template-columns: 3.375rem minmax(0, 1fr); column-gap: 0.5rem; font-size: 0.9375rem; }
-}
-/* 1024 to 1120px: a little less gutter so the introduction keeps about 60 characters a line. */
-@media (min-width: 64rem) and (max-width: 70rem) {
-  .hero-grid,
-  .pub { column-gap: 4rem; }
+/* ---- From 1120px: the profile in a sticky column ------------------- */
+@media (min-width: 70rem) {
+  .page { display: grid; grid-template-columns: 15rem minmax(0, 44rem); column-gap: 5rem; }
+  .profile { position: sticky; top: 0; align-self: start; padding-top: 5.5rem; } /* photo top level with the introduction's first capitals */
+  .ident { margin-top: 1.5rem; }
+  .reach { margin-top: 1.25rem; }
+  .status { margin-top: 1rem; }
+  main { padding-top: 5rem; }
 }
 
-/* ---- Below 768px: News moves under the introduction, in full -------- */
+/* ---- Below 1120px: the profile as a header above one column -------- */
+@media (max-width: 69.98rem) {
+  .profile { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 1.75rem; align-items: center; padding-top: 4rem; }
+  .avatar { grid-row: 1 / span 3; width: 8rem; height: 8rem; }
+  .ident, .reach, .status { grid-column: 2; }
+  .reach { margin-top: 0.875rem; }
+  .status { margin-top: 0.625rem; }
+  main { padding-top: 3rem; }
+}
+@media (min-width: 48rem) and (max-width: 69.98rem) {
+  .wrap { max-width: 48rem; } /* page and footer: one 720px column */
+}
+
+/* ---- Below 768px ---------------------------------------------------- */
 @media (max-width: 47.98rem) {
-  .hero-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "bio" "news"; grid-template-rows: none; row-gap: 2rem; }
-  .side { min-height: 0; }
-  .side .news { position: static; padding-bottom: 1rem; }
-  .news .scroller { overflow: visible; }
-  .news .scroller::before,
-  .news .scroller::after { display: none; }
-  .news .scroller ul { padding-bottom: 0; }
-  .bio { max-width: 38.75rem; } /* about 75 characters a line; as wide as the logo and status row */
+  .wrap { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .profile { column-gap: 1.25rem; padding-top: 2.5rem; }
+  .avatar { width: 7rem; height: 7rem; }
+  .reach { margin-top: 0.75rem; }
+  .status { margin-top: 0.5rem; }
+  main { padding-top: 2.5rem; }
+  .sect + .sect { margin-top: 3rem; }
+  .label { margin-bottom: 0.75rem; }
+  .bio { max-width: 36rem; }
+  .bio p { font-size: 1.0625rem; text-wrap: wrap; } /* "pretty" leaves ragged last lines at this width */
 }
-/* 640 to 767px: figure beside the title and authors; the summary and links run full width. */
-@media (min-width: 40rem) and (max-width: 47.98rem) {
-  .pub { grid-template-columns: 15rem minmax(0, 1fr); grid-template-areas: "fig head" "desc desc" "links links"; grid-template-rows: auto; align-items: center; }
-  .pub > .text { display: contents; }
-  .pub .head { grid-area: head; }
-  .pub .desc { grid-area: desc; margin-top: 1rem; }
-  .pub:not(:has(> .thumb)) { grid-template-areas: "head" "desc" "links"; }
+/* 480 to 767px: a smaller figure beside the text. */
+@media (min-width: 30rem) and (max-width: 47.98rem) {
+  .pub { grid-template-columns: 10rem minmax(0, 1fr); column-gap: 1.25rem; }
 }
-/* Below 640px: figure above the text. */
-@media (max-width: 39.98rem) {
-  .pub { grid-template-columns: minmax(0, 1fr); grid-template-areas: "fig" "text" "links"; grid-template-rows: auto; }
+/* Below 480px: the CV button, marks and status under the photo row; the figure above the text. */
+@media (max-width: 29.98rem) {
+  .avatar { grid-row: 1; width: 5.5rem; height: 5.5rem; }
+  .reach, .status { grid-column: 1 / -1; }
+  .reach { margin-top: 1.25rem; }
+  h1 { font-size: 1.875rem; }
+  .pub { grid-template-columns: minmax(0, 1fr); grid-template-areas: "fig" "text" "links"; grid-template-rows: auto; padding: 1.25rem 0; }
   .pub > .thumb { margin-bottom: 1rem; }
 }
-
-/* ---- Narrow -------------------------------------------------------- */
-@media (max-width: 46rem) {
-  .wrap { padding-left: 1.25rem; padding-right: 1.25rem; }
-  .nav nav { margin-right: -0.5rem; }
-  .nav nav a { padding: 0.375rem 0.5rem; }
-  .nav nav a.opt { display: none; }
-  .hero { padding-top: 2rem; }
-  .ident { gap: 1rem; }
-  .avatar { width: 6rem; height: 6rem; }
-  .role { font-size: 1.0625rem; }
-  .dept { font-size: 1rem; }
-  .bio p { font-size: 1.0625rem; text-wrap: wrap; } /* "pretty" leaves ragged last lines at this width */
-  .block { padding-top: 3rem; }
-  #publications { scroll-margin-top: calc(var(--nav-h) - 1.5rem); }
-  .sec h2 { font-size: 1.75rem; }
-  .pub h4 { font-size: 1.1875rem; }
-}
-@media (max-width: 30rem) { /* the photo stays beside the name, a little smaller */
-  .ident { gap: 0.875rem; }
-  .avatar { width: 5rem; height: 5rem; }
-  h1 { font-size: 2.125rem; }
-}
-@media (max-width: 22rem) { /* very narrow phones: the status stays on one line */
-  h1 { font-size: 1.875rem; }
-  .status { gap: 0.375rem; padding-left: 0.625rem; padding-right: 0.625rem; font-size: 0.875rem; }
-  .cv-chip { padding-left: 0.75rem; padding-right: 0.75rem; }
-  .cv-chip svg { display: none; }
+@media (max-width: 22rem) { /* very narrow phones: "Seoul National University" stays on one line */
+  .profile { column-gap: 1rem; }
+  .avatar { width: 4.5rem; height: 4.5rem; }
+  h1 { font-size: 1.75rem; }
+  .reach { gap: 0.5rem; }
 }
 
-/* ---- 500 to 767px: everything beside the photo ------------------------
-   The name block and the status row are laid out on one grid with the photo, so the head is
-   not a narrow block at the left edge. Below 500px they do not fit beside the photo. */
-@media (min-width: 31.25rem) and (max-width: 47.98rem) {
-  .hero-head { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 1.25rem; align-items: center; }
-  .ident, .ident > div { display: contents; }
-  .avatar { grid-column: 1; grid-row: 1 / span 5; width: 7rem; height: 7rem; }
-  .hero-head h1 { grid-column: 2; grid-row: 1; }
-  .role { grid-column: 2; grid-row: 2; }
-  .dept { grid-column: 2; grid-row: 3; }
-  .social { grid-column: 2; grid-row: 4; }
-  .status-row { grid-column: 2; grid-row: 5; margin-top: 0.625rem; }
+/* Short windows: the sticky profile would not fit, so it scrolls with the page. */
+@media (min-width: 70rem) and (max-height: 28rem) {
+  .profile { position: static; }
 }
-/* From 680px the logos and the status share one row. */
-@media (min-width: 42.5rem) and (max-width: 47.98rem) {
-  .hero-head { grid-template-columns: auto auto minmax(0, 1fr); }
-  .avatar { grid-row: 1 / span 4; }
-  .hero-head h1, .role, .dept { grid-column: 2 / -1; }
-  .status-row { grid-column: 3; grid-row: 4; margin-left: 1rem; }
+/* Touch screens: taller tap areas for the paper links, without moving anything. */
+@media (pointer: coarse) {
+  .links a { padding: 0.375rem 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -470,10 +290,6 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 }
 
 @media print {
-  .nav { position: static; }
+  .profile { position: static; }
   .pub { break-inside: avoid; }
-  .side .news { position: static; }
-  .news .scroller { overflow: visible; }
-  .news .scroller::before,
-  .news .scroller::after { display: none; }
 }
