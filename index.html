@@ -11,7 +11,7 @@
   <meta property="og:title" content="Junsung Park">
   <meta property="og:description" content="AI researcher and Ph.D. candidate at Seoul National University. Research on Vision-Language Models and Large Language Models.">
   <meta property="og:url" content="https://parkquasar.github.io/">
-  <meta property="og:image" content="https://parkquasar.github.io/assets/img/og-card.png">
+  <meta property="og:image" content="https://parkquasar.github.io/assets/img/og-card.png?v=b66c181b">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Junsung Park, Ph.D. candidate at Seoul National University">
@@ -20,7 +20,7 @@
   <link rel="icon" href="favicon.svg?v=b9212a78" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/source-sans-3-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/style.css?v=1bb63927">
+  <link rel="stylesheet" href="assets/style.css?v=d92d2c3d">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -64,6 +64,12 @@
       </ul>
     </div>
     <p class="status">Open to research internships</p>
+    <nav class="toc" aria-label="Sections">
+      <a href="#top">About</a>
+      <a href="#news">News</a>
+      <a href="#publications">Publications</a>
+      <a href="#service">Service</a>
+    </nav>
   </header>
 
   <main>
@@ -82,21 +88,28 @@
     <section class="sect" id="news" aria-labelledby="h-news">
       <h2 class="label" id="h-news">News</h2>
       <div class="body">
-        <!-- Newest first. Venue names use &nbsp; so they stay on one line. -->
+        <!-- Newest first; the five most recent are shown, the rest sit under "Earlier news".
+             When adding an item, move the fifth one down into the second list.
+             Venue names use &nbsp; so they stay on one line. -->
         <ul class="news">
             <li><time datetime="2026-12">Dec 2026</time><span>Presenting at <a href="#neurips2026">NeurIPS&nbsp;2026</a> in <span class="nb">Sydney, Australia</span></span></li>
             <li><time datetime="2026-10">Oct 2026</time><span>Paper accepted to <a href="#tpami2026">IEEE&nbsp;TPAMI</a></span></li>
             <li><time datetime="2026-09">Sep 2026</time><span>Paper accepted to <a href="#neurips2026">NeurIPS&nbsp;2026</a></span></li>
             <li><time datetime="2026-07">Jul 2026</time><span>Presented at <a href="#icml2026">ICML&nbsp;2026</a> in <span class="nb">Seoul, Korea</span></span></li>
             <li><time datetime="2026-04">Apr 2026</time><span>Paper accepted to <a href="#icml2026">ICML&nbsp;2026</a></span></li>
-            <li><time datetime="2025-10">Oct 2025</time><span>Presented at <a href="#iccv2025">ICCV&nbsp;2025</a> in <span class="nb">Honolulu, Hawaii</span></span></li>
-            <li><time datetime="2025-06">Jun 2025</time><span>Paper accepted to <a href="#iccv2025">ICCV&nbsp;2025</a></span></li>
-            <li><time datetime="2025-01">Jan 2025</time><span>Paper accepted to <span class="nb"><a href="#naacl2025">NAACL&nbsp;2025</a> Findings</span></span></li>
-            <li><time datetime="2024-05">May 2024</time><span>Paper accepted to <a href="#acl2024">ACL&nbsp;2024</a> <span class="nb">as an oral</span></span></li>
-            <li><time datetime="2024-05">May 2024</time><span>Presented at <a href="#iclr2024">ICLR&nbsp;2024</a> in <span class="nb">Vienna, Austria</span></span></li>
-            <li><time datetime="2024-01">Jan 2024</time><span>Two papers accepted to <a href="#iclr2024">ICLR&nbsp;2024</a>, one as a&nbsp;spotlight</span></li>
-            <li><time datetime="2023-09">Sep 2023</time><span>Paper accepted to <a href="#neurips2023">NeurIPS&nbsp;2023</a></span></li>
         </ul>
+        <details class="more">
+          <summary>Earlier news</summary>
+          <ul class="news">
+              <li><time datetime="2025-10">Oct 2025</time><span>Presented at <a href="#iccv2025">ICCV&nbsp;2025</a> in <span class="nb">Honolulu, Hawaii</span></span></li>
+              <li><time datetime="2025-06">Jun 2025</time><span>Paper accepted to <a href="#iccv2025">ICCV&nbsp;2025</a></span></li>
+              <li><time datetime="2025-01">Jan 2025</time><span>Paper accepted to <span class="nb"><a href="#naacl2025">NAACL&nbsp;2025</a> Findings</span></span></li>
+              <li><time datetime="2024-05">May 2024</time><span>Paper accepted to <a href="#acl2024">ACL&nbsp;2024</a> <span class="nb">as an oral</span></span></li>
+              <li><time datetime="2024-05">May 2024</time><span>Presented at <a href="#iclr2024">ICLR&nbsp;2024</a> in <span class="nb">Vienna, Austria</span></span></li>
+              <li><time datetime="2024-01">Jan 2024</time><span>Two papers accepted to <a href="#iclr2024">ICLR&nbsp;2024</a>, one as a&nbsp;spotlight</span></li>
+              <li><time datetime="2023-09">Sep 2023</time><span>Paper accepted to <a href="#neurips2023">NeurIPS&nbsp;2023</a></span></li>
+          </ul>
+        </details>
       </div>
     </section>
 
@@ -227,6 +240,26 @@
       <ul class="links"><li><a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/3d226fb8fbd6ee6ec70d0427f1319707-Abstract-Conference.html">Paper</a></li><li><a href="https://arxiv.org/abs/2310.10088">arXiv</a></li><li><a href="https://github.com/HyemiEsme/PUCA">Code</a></li></ul>
     </article>
         <p class="legend">* Equal contribution</p>
+      </div>
+    </section>
+
+    <!-- ===== Service, teaching and honors =============================== -->
+    <section class="sect" id="service" aria-labelledby="h-service">
+      <h2 class="label" id="h-service">Service and Teaching</h2>
+      <div class="body">
+        <ul class="items">
+          <li><p class="item">Conference Reviewer</p><p class="detail">CVPR, NeurIPS, ICLR</p></li>
+          <li><p class="item">Teaching Assistant, Seoul National University</p><p class="detail">Machine Learning Fundamentals, Spring 2026</p><p class="detail">Machine Learning Fundamentals and Applications in Electrical and Computer Engineering, Spring 2023</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sect" id="honors" aria-labelledby="h-honors">
+      <h2 class="label" id="h-honors">Honors</h2>
+      <div class="body">
+        <ul class="items">
+          <li><p class="item">National Academic Excellence Scholarship (Science and Engineering)</p><p class="detail">Korea Student Aid Foundation, <span class="nb">2016&ndash;2022</span></p></li>
+        </ul>
       </div>
     </section>
 
