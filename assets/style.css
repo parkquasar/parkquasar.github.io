@@ -106,7 +106,7 @@ h1 {
   letter-spacing: -0.015em;
 }
 .role { margin-top: 0.5rem; font-size: 1.0625rem; line-height: 1.4; }
-.dept { color: var(--muted); font-size: 1.0625rem; line-height: 1.4; }
+.dept { font-size: 1.0625rem; line-height: 1.4; }
 
 /* The CV button first, then the profile marks, all on one centre line. Each mark's viewBox is
    cropped to its drawing, so the sizes below are drawn sizes: 20px tall (the envelope 20 x 16,
@@ -211,11 +211,6 @@ h1 {
 .body > .year:first-child { margin-top: 0.5rem; }
 .legend { margin-top: 1.5rem; color: var(--muted); font-size: 0.9375rem; }
 
-/* Service, teaching and honors: an item, then its details in grey. */
-.items li + li { margin-top: 0.75rem; }
-.item { color: var(--ink); font-size: 1rem; line-height: 1.5; }
-.detail { color: var(--muted); font-size: 0.9375rem; line-height: 1.5; }
-
 /* Each paper is a row: figure | text, with the links under the text. All figures are 3:2
    (assets/img/thumbs); they open the full-size figure. */
 .pub {
@@ -263,7 +258,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .reach { margin-top: 1.25rem; }
   .status { margin-top: 1rem; }
   .toc { display: flex; flex-direction: column; align-items: flex-start; gap: 0.25rem; margin-top: 2.5rem; }
-  .toc a { color: var(--muted); font-size: 0.9375rem; line-height: 1.5; transition: color 0.15s ease; }
+  .toc a { color: var(--muted); font-size: 1rem; line-height: 1.5; transition: color 0.15s ease; }
   .toc a:hover { color: var(--navy); }
   main { padding-top: 5rem; }
 }
@@ -315,7 +310,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 }
 
 /* Short windows: the sticky profile would not fit, so it scrolls with the page. */
-@media (min-width: 70rem) and (max-height: 37rem) { /* the profile column is about 573px tall */
+@media (min-width: 70rem) and (max-height: 35rem) { /* the profile column is about 551px tall */
   .profile { position: static; }
 }
 /* Touch screens: taller tap areas for the paper links, without moving anything. */
